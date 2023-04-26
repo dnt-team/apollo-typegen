@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/dnt-team/apollo-typegen/compare/v1.0.1...v1.0.2) (2023-04-26)
+
+
+### Bug Fixes
+
+* fix bug can't copy dist folder ([80b8511](https://github.com/dnt-team/apollo-typegen/commit/80b851118d9dc50cb2a9a652194a199c44630635))
+
 ## [1.0.1](https://github.com/dnt-team/apollo-typegen/compare/v1.0.0...v1.0.1) (2023-04-26)
 
 
