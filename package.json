@@ -34,9 +34,6 @@
     "tag": "latest",
     "pkgRoot": "build"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "impetus"
   ],
