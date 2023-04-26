@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/dnt-team/apollo-typegen/compare/v1.0.0...v1.0.1) (2023-04-26)
+
+
+### Bug Fixes
+
+* fix bug build ([e632b57](https://github.com/dnt-team/apollo-typegen/commit/e632b572d5b86511372cb9b2f37810604c3dc1c7))
+
 # 1.0.0 (2023-04-26)
 
 
