@@ -1,17 +1,14 @@
-import { CodegenConfig } from '@graphql-codegen/cli'
 
-const impetusSubsquidConfig: CodegenConfig = {
+import type { CodegenConfig } from '@graphql-codegen/cli';
+
+const config: CodegenConfig = {
   overwrite: true,
-  schema: 'http://localhost:4350/graphql',
-  emitLegacyCommonJSImports: false,
+  schema: "http://localhost:4350/graphql",
   generates: {
-    './src/resolvers-types.ts': {
-      config: {
-        useIndexSignature: true,
-      },
-      plugins: ['typescript', 'typescript-resolvers'],
-    },
-  },
-}
+    "src/generated/graphql.ts": {
+      plugins: ["typescript", "typescript-resolvers"]
+    }
+  }
+};
 
-export default impetusSubsquidConfig
+export default config;

@@ -1063,8 +1063,7 @@ export type WhereIdInput = {
   id: Scalars['String'];
 };
 
-export type WithIndex<TObject> = TObject & Record<string, any>;
-export type ResolversObject<TObject> = WithIndex<TObject>;
+
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
@@ -1134,7 +1133,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 
 /** Mapping between all available schema types and the resolvers types */
-export type ResolversTypes = ResolversObject<{
+export type ResolversTypes = {
   BigInt: ResolverTypeWrapper<Scalars['BigInt']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
@@ -1175,10 +1174,10 @@ export type ResolversTypes = ResolversObject<{
   TotalSettleAmountWhereInput: TotalSettleAmountWhereInput;
   TotalSettleAmountsConnection: ResolverTypeWrapper<TotalSettleAmountsConnection>;
   WhereIdInput: WhereIdInput;
-}>;
+};
 
 /** Mapping between all available schema types and the resolvers parents */
-export type ResolversParentTypes = ResolversObject<{
+export type ResolversParentTypes = {
   BigInt: Scalars['BigInt'];
   Boolean: Scalars['Boolean'];
   DateTime: Scalars['DateTime'];
@@ -1213,7 +1212,7 @@ export type ResolversParentTypes = ResolversObject<{
   TotalSettleAmountWhereInput: TotalSettleAmountWhereInput;
   TotalSettleAmountsConnection: TotalSettleAmountsConnection;
   WhereIdInput: WhereIdInput;
-}>;
+};
 
 export interface BigIntScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['BigInt'], any> {
   name: 'BigInt';
@@ -1223,7 +1222,7 @@ export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversT
   name: 'DateTime';
 }
 
-export type LotteryRoundResolvers<ContextType = any, ParentType extends ResolversParentTypes['LotteryRound'] = ResolversParentTypes['LotteryRound']> = ResolversObject<{
+export type LotteryRoundResolvers<ContextType = any, ParentType extends ResolversParentTypes['LotteryRound'] = ResolversParentTypes['LotteryRound']> = {
   blockHash?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   delay?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   end?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -1240,30 +1239,30 @@ export type LotteryRoundResolvers<ContextType = any, ParentType extends Resolver
   totalSettleAmountByNumbers?: Resolver<Array<ResolversTypes['TotalSettleAmountByNumber']>, ParentType, ContextType, Partial<LotteryRoundTotalSettleAmountByNumbersArgs>>;
   totalSettleAmounts?: Resolver<Array<ResolversTypes['TotalSettleAmount']>, ParentType, ContextType, Partial<LotteryRoundTotalSettleAmountsArgs>>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type LotteryRoundEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['LotteryRoundEdge'] = ResolversParentTypes['LotteryRoundEdge']> = ResolversObject<{
+export type LotteryRoundEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['LotteryRoundEdge'] = ResolversParentTypes['LotteryRoundEdge']> = {
   cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   node?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type LotteryRoundsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['LotteryRoundsConnection'] = ResolversParentTypes['LotteryRoundsConnection']> = ResolversObject<{
+export type LotteryRoundsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['LotteryRoundsConnection'] = ResolversParentTypes['LotteryRoundsConnection']> = {
   edges?: Resolver<Array<ResolversTypes['LotteryRoundEdge']>, ParentType, ContextType>;
   pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
   totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type PageInfoResolvers<ContextType = any, ParentType extends ResolversParentTypes['PageInfo'] = ResolversParentTypes['PageInfo']> = ResolversObject<{
+export type PageInfoResolvers<ContextType = any, ParentType extends ResolversParentTypes['PageInfo'] = ResolversParentTypes['PageInfo']> = {
   endCursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   hasNextPage?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   hasPreviousPage?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   startCursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
+export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   lotteryRoundById?: Resolver<Maybe<ResolversTypes['LotteryRound']>, ParentType, ContextType, RequireFields<QueryLotteryRoundByIdArgs, 'id'>>;
   lotteryRoundByUniqueInput?: Resolver<Maybe<ResolversTypes['LotteryRound']>, ParentType, ContextType, RequireFields<QueryLotteryRoundByUniqueInputArgs, 'where'>>;
   lotteryRounds?: Resolver<Array<ResolversTypes['LotteryRound']>, ParentType, ContextType, Partial<QueryLotteryRoundsArgs>>;
@@ -1289,56 +1288,56 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   totalSettleAmountByUniqueInput?: Resolver<Maybe<ResolversTypes['TotalSettleAmount']>, ParentType, ContextType, RequireFields<QueryTotalSettleAmountByUniqueInputArgs, 'where'>>;
   totalSettleAmounts?: Resolver<Array<ResolversTypes['TotalSettleAmount']>, ParentType, ContextType, Partial<QueryTotalSettleAmountsArgs>>;
   totalSettleAmountsConnection?: Resolver<ResolversTypes['TotalSettleAmountsConnection'], ParentType, ContextType, RequireFields<QueryTotalSettleAmountsConnectionArgs, 'orderBy'>>;
-}>;
+};
 
-export type RandomNumberGeneratedResolvers<ContextType = any, ParentType extends ResolversParentTypes['RandomNumberGenerated'] = ResolversParentTypes['RandomNumberGenerated']> = ResolversObject<{
+export type RandomNumberGeneratedResolvers<ContextType = any, ParentType extends ResolversParentTypes['RandomNumberGenerated'] = ResolversParentTypes['RandomNumberGenerated']> = {
   blockHash?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   number?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   round?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
   timestamp?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type RandomNumberGeneratedEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['RandomNumberGeneratedEdge'] = ResolversParentTypes['RandomNumberGeneratedEdge']> = ResolversObject<{
+export type RandomNumberGeneratedEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['RandomNumberGeneratedEdge'] = ResolversParentTypes['RandomNumberGeneratedEdge']> = {
   cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   node?: Resolver<ResolversTypes['RandomNumberGenerated'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type RandomNumberGeneratedsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['RandomNumberGeneratedsConnection'] = ResolversParentTypes['RandomNumberGeneratedsConnection']> = ResolversObject<{
+export type RandomNumberGeneratedsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['RandomNumberGeneratedsConnection'] = ResolversParentTypes['RandomNumberGeneratedsConnection']> = {
   edges?: Resolver<Array<ResolversTypes['RandomNumberGeneratedEdge']>, ParentType, ContextType>;
   pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
   totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type RoundWinnerResolvers<ContextType = any, ParentType extends ResolversParentTypes['RoundWinner'] = ResolversParentTypes['RoundWinner']> = ResolversObject<{
+export type RoundWinnerResolvers<ContextType = any, ParentType extends ResolversParentTypes['RoundWinner'] = ResolversParentTypes['RoundWinner']> = {
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   round?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
   ticketBought?: Resolver<ResolversTypes['TicketBought'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type RoundWinnerEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['RoundWinnerEdge'] = ResolversParentTypes['RoundWinnerEdge']> = ResolversObject<{
+export type RoundWinnerEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['RoundWinnerEdge'] = ResolversParentTypes['RoundWinnerEdge']> = {
   cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   node?: Resolver<ResolversTypes['RoundWinner'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type RoundWinnersConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['RoundWinnersConnection'] = ResolversParentTypes['RoundWinnersConnection']> = ResolversObject<{
+export type RoundWinnersConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['RoundWinnersConnection'] = ResolversParentTypes['RoundWinnersConnection']> = {
   edges?: Resolver<Array<ResolversTypes['RoundWinnerEdge']>, ParentType, ContextType>;
   pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
   totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type SquidStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['SquidStatus'] = ResolversParentTypes['SquidStatus']> = ResolversObject<{
+export type SquidStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['SquidStatus'] = ResolversParentTypes['SquidStatus']> = {
   height?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type SubscriptionResolvers<ContextType = any, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = ResolversObject<{
+export type SubscriptionResolvers<ContextType = any, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = {
   lotteryRoundById?: SubscriptionResolver<Maybe<ResolversTypes['LotteryRound']>, "lotteryRoundById", ParentType, ContextType, RequireFields<SubscriptionLotteryRoundByIdArgs, 'id'>>;
   lotteryRounds?: SubscriptionResolver<Array<ResolversTypes['LotteryRound']>, "lotteryRounds", ParentType, ContextType, Partial<SubscriptionLotteryRoundsArgs>>;
   randomNumberGeneratedById?: SubscriptionResolver<Maybe<ResolversTypes['RandomNumberGenerated']>, "randomNumberGeneratedById", ParentType, ContextType, RequireFields<SubscriptionRandomNumberGeneratedByIdArgs, 'id'>>;
@@ -1351,9 +1350,9 @@ export type SubscriptionResolvers<ContextType = any, ParentType extends Resolver
   totalSettleAmountByNumberById?: SubscriptionResolver<Maybe<ResolversTypes['TotalSettleAmountByNumber']>, "totalSettleAmountByNumberById", ParentType, ContextType, RequireFields<SubscriptionTotalSettleAmountByNumberByIdArgs, 'id'>>;
   totalSettleAmountByNumbers?: SubscriptionResolver<Array<ResolversTypes['TotalSettleAmountByNumber']>, "totalSettleAmountByNumbers", ParentType, ContextType, Partial<SubscriptionTotalSettleAmountByNumbersArgs>>;
   totalSettleAmounts?: SubscriptionResolver<Array<ResolversTypes['TotalSettleAmount']>, "totalSettleAmounts", ParentType, ContextType, Partial<SubscriptionTotalSettleAmountsArgs>>;
-}>;
+};
 
-export type TicketBoughtResolvers<ContextType = any, ParentType extends ResolversParentTypes['TicketBought'] = ResolversParentTypes['TicketBought']> = ResolversObject<{
+export type TicketBoughtResolvers<ContextType = any, ParentType extends ResolversParentTypes['TicketBought'] = ResolversParentTypes['TicketBought']> = {
   amount?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
   blockNumber?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1364,63 +1363,63 @@ export type TicketBoughtResolvers<ContextType = any, ParentType extends Resolver
   transactionHash?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   who?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type TicketBoughtEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['TicketBoughtEdge'] = ResolversParentTypes['TicketBoughtEdge']> = ResolversObject<{
+export type TicketBoughtEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['TicketBoughtEdge'] = ResolversParentTypes['TicketBoughtEdge']> = {
   cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   node?: Resolver<ResolversTypes['TicketBought'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type TicketBoughtsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['TicketBoughtsConnection'] = ResolversParentTypes['TicketBoughtsConnection']> = ResolversObject<{
+export type TicketBoughtsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['TicketBoughtsConnection'] = ResolversParentTypes['TicketBoughtsConnection']> = {
   edges?: Resolver<Array<ResolversTypes['TicketBoughtEdge']>, ParentType, ContextType>;
   pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
   totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type TotalSettleAmountResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmount'] = ResolversParentTypes['TotalSettleAmount']> = ResolversObject<{
+export type TotalSettleAmountResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmount'] = ResolversParentTypes['TotalSettleAmount']> = {
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   round?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
   totalAmount?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type TotalSettleAmountByNumberResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountByNumber'] = ResolversParentTypes['TotalSettleAmountByNumber']> = ResolversObject<{
+export type TotalSettleAmountByNumberResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountByNumber'] = ResolversParentTypes['TotalSettleAmountByNumber']> = {
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   number?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   round?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
   totalAmount?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type TotalSettleAmountByNumberEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountByNumberEdge'] = ResolversParentTypes['TotalSettleAmountByNumberEdge']> = ResolversObject<{
+export type TotalSettleAmountByNumberEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountByNumberEdge'] = ResolversParentTypes['TotalSettleAmountByNumberEdge']> = {
   cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   node?: Resolver<ResolversTypes['TotalSettleAmountByNumber'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type TotalSettleAmountByNumbersConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountByNumbersConnection'] = ResolversParentTypes['TotalSettleAmountByNumbersConnection']> = ResolversObject<{
+export type TotalSettleAmountByNumbersConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountByNumbersConnection'] = ResolversParentTypes['TotalSettleAmountByNumbersConnection']> = {
   edges?: Resolver<Array<ResolversTypes['TotalSettleAmountByNumberEdge']>, ParentType, ContextType>;
   pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
   totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type TotalSettleAmountEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountEdge'] = ResolversParentTypes['TotalSettleAmountEdge']> = ResolversObject<{
+export type TotalSettleAmountEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountEdge'] = ResolversParentTypes['TotalSettleAmountEdge']> = {
   cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   node?: Resolver<ResolversTypes['TotalSettleAmount'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type TotalSettleAmountsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountsConnection'] = ResolversParentTypes['TotalSettleAmountsConnection']> = ResolversObject<{
+export type TotalSettleAmountsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountsConnection'] = ResolversParentTypes['TotalSettleAmountsConnection']> = {
   edges?: Resolver<Array<ResolversTypes['TotalSettleAmountEdge']>, ParentType, ContextType>;
   pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
   totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
-export type Resolvers<ContextType = any> = ResolversObject<{
+export type Resolvers<ContextType = any> = {
   BigInt?: GraphQLScalarType;
   DateTime?: GraphQLScalarType;
   LotteryRound?: LotteryRoundResolvers<ContextType>;
@@ -1445,5 +1444,5 @@ export type Resolvers<ContextType = any> = ResolversObject<{
   TotalSettleAmountByNumbersConnection?: TotalSettleAmountByNumbersConnectionResolvers<ContextType>;
   TotalSettleAmountEdge?: TotalSettleAmountEdgeResolvers<ContextType>;
   TotalSettleAmountsConnection?: TotalSettleAmountsConnectionResolvers<ContextType>;
-}>;
+};
 

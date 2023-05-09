@@ -1,1 +1,1 @@
-export * from './resolvers-types'
+export * from './generated/graphql'
