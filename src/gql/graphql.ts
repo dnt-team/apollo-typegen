@@ -20,6 +20,7 @@ export type Scalars = {
 
 export type LotteryRound = {
   __typename?: 'LotteryRound';
+  blockHash?: Maybe<Scalars['String']>;
   delay: Scalars['Int'];
   end: Scalars['Int'];
   id: Scalars['String'];
@@ -29,11 +30,19 @@ export type LotteryRound = {
   rate?: Maybe<Scalars['Int']>;
   repeat: Scalars['Boolean'];
   round: Scalars['Int'];
+  roundWinners: Array<RoundWinner>;
   start: Scalars['Int'];
   ticketBoughts: Array<TicketBought>;
   totalSettleAmountByNumbers: Array<TotalSettleAmountByNumber>;
   totalSettleAmounts: Array<TotalSettleAmount>;
-  transactionHash?: Maybe<Scalars['String']>;
+};
+
+
+export type LotteryRoundRoundWinnersArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Array<RoundWinnerOrderByInput>>;
+  where?: InputMaybe<RoundWinnerWhereInput>;
 };
 
 
@@ -67,6 +76,8 @@ export type LotteryRoundEdge = {
 };
 
 export enum LotteryRoundOrderByInput {
+  BlockHashAsc = 'blockHash_ASC',
+  BlockHashDesc = 'blockHash_DESC',
   DelayAsc = 'delay_ASC',
   DelayDesc = 'delay_DESC',
   EndAsc = 'end_ASC',
@@ -92,14 +103,29 @@ export enum LotteryRoundOrderByInput {
   RoundAsc = 'round_ASC',
   RoundDesc = 'round_DESC',
   StartAsc = 'start_ASC',
-  StartDesc = 'start_DESC',
-  TransactionHashAsc = 'transactionHash_ASC',
-  TransactionHashDesc = 'transactionHash_DESC'
+  StartDesc = 'start_DESC'
 }
 
 export type LotteryRoundWhereInput = {
   AND?: InputMaybe<Array<LotteryRoundWhereInput>>;
   OR?: InputMaybe<Array<LotteryRoundWhereInput>>;
+  blockHash_contains?: InputMaybe<Scalars['String']>;
+  blockHash_containsInsensitive?: InputMaybe<Scalars['String']>;
+  blockHash_endsWith?: InputMaybe<Scalars['String']>;
+  blockHash_eq?: InputMaybe<Scalars['String']>;
+  blockHash_gt?: InputMaybe<Scalars['String']>;
+  blockHash_gte?: InputMaybe<Scalars['String']>;
+  blockHash_in?: InputMaybe<Array<Scalars['String']>>;
+  blockHash_isNull?: InputMaybe<Scalars['Boolean']>;
+  blockHash_lt?: InputMaybe<Scalars['String']>;
+  blockHash_lte?: InputMaybe<Scalars['String']>;
+  blockHash_not_contains?: InputMaybe<Scalars['String']>;
+  blockHash_not_containsInsensitive?: InputMaybe<Scalars['String']>;
+  blockHash_not_endsWith?: InputMaybe<Scalars['String']>;
+  blockHash_not_eq?: InputMaybe<Scalars['String']>;
+  blockHash_not_in?: InputMaybe<Array<Scalars['String']>>;
+  blockHash_not_startsWith?: InputMaybe<Scalars['String']>;
+  blockHash_startsWith?: InputMaybe<Scalars['String']>;
   delay_eq?: InputMaybe<Scalars['Int']>;
   delay_gt?: InputMaybe<Scalars['Int']>;
   delay_gte?: InputMaybe<Scalars['Int']>;
@@ -167,6 +193,9 @@ export type LotteryRoundWhereInput = {
   repeat_eq?: InputMaybe<Scalars['Boolean']>;
   repeat_isNull?: InputMaybe<Scalars['Boolean']>;
   repeat_not_eq?: InputMaybe<Scalars['Boolean']>;
+  roundWinners_every?: InputMaybe<RoundWinnerWhereInput>;
+  roundWinners_none?: InputMaybe<RoundWinnerWhereInput>;
+  roundWinners_some?: InputMaybe<RoundWinnerWhereInput>;
   round_eq?: InputMaybe<Scalars['Int']>;
   round_gt?: InputMaybe<Scalars['Int']>;
   round_gte?: InputMaybe<Scalars['Int']>;
@@ -194,23 +223,6 @@ export type LotteryRoundWhereInput = {
   totalSettleAmounts_every?: InputMaybe<TotalSettleAmountWhereInput>;
   totalSettleAmounts_none?: InputMaybe<TotalSettleAmountWhereInput>;
   totalSettleAmounts_some?: InputMaybe<TotalSettleAmountWhereInput>;
-  transactionHash_contains?: InputMaybe<Scalars['String']>;
-  transactionHash_containsInsensitive?: InputMaybe<Scalars['String']>;
-  transactionHash_endsWith?: InputMaybe<Scalars['String']>;
-  transactionHash_eq?: InputMaybe<Scalars['String']>;
-  transactionHash_gt?: InputMaybe<Scalars['String']>;
-  transactionHash_gte?: InputMaybe<Scalars['String']>;
-  transactionHash_in?: InputMaybe<Array<Scalars['String']>>;
-  transactionHash_isNull?: InputMaybe<Scalars['Boolean']>;
-  transactionHash_lt?: InputMaybe<Scalars['String']>;
-  transactionHash_lte?: InputMaybe<Scalars['String']>;
-  transactionHash_not_contains?: InputMaybe<Scalars['String']>;
-  transactionHash_not_containsInsensitive?: InputMaybe<Scalars['String']>;
-  transactionHash_not_endsWith?: InputMaybe<Scalars['String']>;
-  transactionHash_not_eq?: InputMaybe<Scalars['String']>;
-  transactionHash_not_in?: InputMaybe<Array<Scalars['String']>>;
-  transactionHash_not_startsWith?: InputMaybe<Scalars['String']>;
-  transactionHash_startsWith?: InputMaybe<Scalars['String']>;
 };
 
 export type LotteryRoundsConnection = {
@@ -240,6 +252,11 @@ export type Query = {
   randomNumberGeneratedByUniqueInput?: Maybe<RandomNumberGenerated>;
   randomNumberGenerateds: Array<RandomNumberGenerated>;
   randomNumberGeneratedsConnection: RandomNumberGeneratedsConnection;
+  roundWinnerById?: Maybe<RoundWinner>;
+  /** @deprecated Use roundWinnerById */
+  roundWinnerByUniqueInput?: Maybe<RoundWinner>;
+  roundWinners: Array<RoundWinner>;
+  roundWinnersConnection: RoundWinnersConnection;
   squidStatus?: Maybe<SquidStatus>;
   ticketBoughtById?: Maybe<TicketBought>;
   /** @deprecated Use ticketBoughtById */
@@ -308,6 +325,32 @@ export type QueryRandomNumberGeneratedsConnectionArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy: Array<RandomNumberGeneratedOrderByInput>;
   where?: InputMaybe<RandomNumberGeneratedWhereInput>;
+};
+
+
+export type QueryRoundWinnerByIdArgs = {
+  id: Scalars['String'];
+};
+
+
+export type QueryRoundWinnerByUniqueInputArgs = {
+  where: WhereIdInput;
+};
+
+
+export type QueryRoundWinnersArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Array<RoundWinnerOrderByInput>>;
+  where?: InputMaybe<RoundWinnerWhereInput>;
+};
+
+
+export type QueryRoundWinnersConnectionArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: Array<RoundWinnerOrderByInput>;
+  where?: InputMaybe<RoundWinnerWhereInput>;
 };
 
 
@@ -410,6 +453,8 @@ export enum RandomNumberGeneratedOrderByInput {
   IdDesc = 'id_DESC',
   NumberAsc = 'number_ASC',
   NumberDesc = 'number_DESC',
+  RoundBlockHashAsc = 'round_blockHash_ASC',
+  RoundBlockHashDesc = 'round_blockHash_DESC',
   RoundDelayAsc = 'round_delay_ASC',
   RoundDelayDesc = 'round_delay_DESC',
   RoundEndAsc = 'round_end_ASC',
@@ -428,8 +473,6 @@ export enum RandomNumberGeneratedOrderByInput {
   RoundRoundDesc = 'round_round_DESC',
   RoundStartAsc = 'round_start_ASC',
   RoundStartDesc = 'round_start_DESC',
-  RoundTransactionHashAsc = 'round_transactionHash_ASC',
-  RoundTransactionHashDesc = 'round_transactionHash_DESC',
   TimestampAsc = 'timestamp_ASC',
   TimestampDesc = 'timestamp_DESC'
 }
@@ -500,10 +543,189 @@ export type RandomNumberGeneratedsConnection = {
   totalCount: Scalars['Int'];
 };
 
+export type RoundWinner = {
+  __typename?: 'RoundWinner';
+  id: Scalars['String'];
+  round: LotteryRound;
+  ticketBought: TicketBought;
+};
+
+export type RoundWinnerEdge = {
+  __typename?: 'RoundWinnerEdge';
+  cursor: Scalars['String'];
+  node: RoundWinner;
+};
+
+export enum RoundWinnerOrderByInput {
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  RoundBlockHashAsc = 'round_blockHash_ASC',
+  RoundBlockHashDesc = 'round_blockHash_DESC',
+  RoundDelayAsc = 'round_delay_ASC',
+  RoundDelayDesc = 'round_delay_DESC',
+  RoundEndAsc = 'round_end_ASC',
+  RoundEndDesc = 'round_end_DESC',
+  RoundIdAsc = 'round_id_ASC',
+  RoundIdDesc = 'round_id_DESC',
+  RoundLengthAsc = 'round_length_ASC',
+  RoundLengthDesc = 'round_length_DESC',
+  RoundMinPriceAsc = 'round_minPrice_ASC',
+  RoundMinPriceDesc = 'round_minPrice_DESC',
+  RoundRateAsc = 'round_rate_ASC',
+  RoundRateDesc = 'round_rate_DESC',
+  RoundRepeatAsc = 'round_repeat_ASC',
+  RoundRepeatDesc = 'round_repeat_DESC',
+  RoundRoundAsc = 'round_round_ASC',
+  RoundRoundDesc = 'round_round_DESC',
+  RoundStartAsc = 'round_start_ASC',
+  RoundStartDesc = 'round_start_DESC',
+  TicketBoughtAmountAsc = 'ticketBought_amount_ASC',
+  TicketBoughtAmountDesc = 'ticketBought_amount_DESC',
+  TicketBoughtBlockNumberAsc = 'ticketBought_blockNumber_ASC',
+  TicketBoughtBlockNumberDesc = 'ticketBought_blockNumber_DESC',
+  TicketBoughtIdAsc = 'ticketBought_id_ASC',
+  TicketBoughtIdDesc = 'ticketBought_id_DESC',
+  TicketBoughtNumberAsc = 'ticketBought_number_ASC',
+  TicketBoughtNumberDesc = 'ticketBought_number_DESC',
+  TicketBoughtTimestampAsc = 'ticketBought_timestamp_ASC',
+  TicketBoughtTimestampDesc = 'ticketBought_timestamp_DESC',
+  TicketBoughtTransactionHashAsc = 'ticketBought_transactionHash_ASC',
+  TicketBoughtTransactionHashDesc = 'ticketBought_transactionHash_DESC',
+  TicketBoughtWhoAsc = 'ticketBought_who_ASC',
+  TicketBoughtWhoDesc = 'ticketBought_who_DESC'
+}
+
+export type RoundWinnerWhereInput = {
+  AND?: InputMaybe<Array<RoundWinnerWhereInput>>;
+  OR?: InputMaybe<Array<RoundWinnerWhereInput>>;
+  id_contains?: InputMaybe<Scalars['String']>;
+  id_containsInsensitive?: InputMaybe<Scalars['String']>;
+  id_endsWith?: InputMaybe<Scalars['String']>;
+  id_eq?: InputMaybe<Scalars['String']>;
+  id_gt?: InputMaybe<Scalars['String']>;
+  id_gte?: InputMaybe<Scalars['String']>;
+  id_in?: InputMaybe<Array<Scalars['String']>>;
+  id_isNull?: InputMaybe<Scalars['Boolean']>;
+  id_lt?: InputMaybe<Scalars['String']>;
+  id_lte?: InputMaybe<Scalars['String']>;
+  id_not_contains?: InputMaybe<Scalars['String']>;
+  id_not_containsInsensitive?: InputMaybe<Scalars['String']>;
+  id_not_endsWith?: InputMaybe<Scalars['String']>;
+  id_not_eq?: InputMaybe<Scalars['String']>;
+  id_not_in?: InputMaybe<Array<Scalars['String']>>;
+  id_not_startsWith?: InputMaybe<Scalars['String']>;
+  id_startsWith?: InputMaybe<Scalars['String']>;
+  round?: InputMaybe<LotteryRoundWhereInput>;
+  round_isNull?: InputMaybe<Scalars['Boolean']>;
+  ticketBought?: InputMaybe<TicketBoughtWhereInput>;
+  ticketBought_isNull?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type RoundWinnersConnection = {
+  __typename?: 'RoundWinnersConnection';
+  edges: Array<RoundWinnerEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int'];
+};
+
 export type SquidStatus = {
   __typename?: 'SquidStatus';
   /** The height of the processed part of the chain */
   height?: Maybe<Scalars['Int']>;
+};
+
+export type Subscription = {
+  __typename?: 'Subscription';
+  lotteryRoundById?: Maybe<LotteryRound>;
+  lotteryRounds: Array<LotteryRound>;
+  randomNumberGeneratedById?: Maybe<RandomNumberGenerated>;
+  randomNumberGenerateds: Array<RandomNumberGenerated>;
+  roundWinnerById?: Maybe<RoundWinner>;
+  roundWinners: Array<RoundWinner>;
+  ticketBoughtById?: Maybe<TicketBought>;
+  ticketBoughts: Array<TicketBought>;
+  totalSettleAmountById?: Maybe<TotalSettleAmount>;
+  totalSettleAmountByNumberById?: Maybe<TotalSettleAmountByNumber>;
+  totalSettleAmountByNumbers: Array<TotalSettleAmountByNumber>;
+  totalSettleAmounts: Array<TotalSettleAmount>;
+};
+
+
+export type SubscriptionLotteryRoundByIdArgs = {
+  id: Scalars['String'];
+};
+
+
+export type SubscriptionLotteryRoundsArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Array<LotteryRoundOrderByInput>>;
+  where?: InputMaybe<LotteryRoundWhereInput>;
+};
+
+
+export type SubscriptionRandomNumberGeneratedByIdArgs = {
+  id: Scalars['String'];
+};
+
+
+export type SubscriptionRandomNumberGeneratedsArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Array<RandomNumberGeneratedOrderByInput>>;
+  where?: InputMaybe<RandomNumberGeneratedWhereInput>;
+};
+
+
+export type SubscriptionRoundWinnerByIdArgs = {
+  id: Scalars['String'];
+};
+
+
+export type SubscriptionRoundWinnersArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Array<RoundWinnerOrderByInput>>;
+  where?: InputMaybe<RoundWinnerWhereInput>;
+};
+
+
+export type SubscriptionTicketBoughtByIdArgs = {
+  id: Scalars['String'];
+};
+
+
+export type SubscriptionTicketBoughtsArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Array<TicketBoughtOrderByInput>>;
+  where?: InputMaybe<TicketBoughtWhereInput>;
+};
+
+
+export type SubscriptionTotalSettleAmountByIdArgs = {
+  id: Scalars['String'];
+};
+
+
+export type SubscriptionTotalSettleAmountByNumberByIdArgs = {
+  id: Scalars['String'];
+};
+
+
+export type SubscriptionTotalSettleAmountByNumbersArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Array<TotalSettleAmountByNumberOrderByInput>>;
+  where?: InputMaybe<TotalSettleAmountByNumberWhereInput>;
+};
+
+
+export type SubscriptionTotalSettleAmountsArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Array<TotalSettleAmountOrderByInput>>;
+  where?: InputMaybe<TotalSettleAmountWhereInput>;
 };
 
 export type TicketBought = {
@@ -513,6 +735,7 @@ export type TicketBought = {
   id: Scalars['String'];
   number: Scalars['Int'];
   round: LotteryRound;
+  roundWinner?: Maybe<RoundWinner>;
   timestamp: Scalars['DateTime'];
   transactionHash?: Maybe<Scalars['String']>;
   who: Scalars['String'];
@@ -533,6 +756,10 @@ export enum TicketBoughtOrderByInput {
   IdDesc = 'id_DESC',
   NumberAsc = 'number_ASC',
   NumberDesc = 'number_DESC',
+  RoundWinnerIdAsc = 'roundWinner_id_ASC',
+  RoundWinnerIdDesc = 'roundWinner_id_DESC',
+  RoundBlockHashAsc = 'round_blockHash_ASC',
+  RoundBlockHashDesc = 'round_blockHash_DESC',
   RoundDelayAsc = 'round_delay_ASC',
   RoundDelayDesc = 'round_delay_DESC',
   RoundEndAsc = 'round_end_ASC',
@@ -551,8 +778,6 @@ export enum TicketBoughtOrderByInput {
   RoundRoundDesc = 'round_round_DESC',
   RoundStartAsc = 'round_start_ASC',
   RoundStartDesc = 'round_start_DESC',
-  RoundTransactionHashAsc = 'round_transactionHash_ASC',
-  RoundTransactionHashDesc = 'round_transactionHash_DESC',
   TimestampAsc = 'timestamp_ASC',
   TimestampDesc = 'timestamp_DESC',
   TransactionHashAsc = 'transactionHash_ASC',
@@ -609,6 +834,8 @@ export type TicketBoughtWhereInput = {
   number_not_eq?: InputMaybe<Scalars['Int']>;
   number_not_in?: InputMaybe<Array<Scalars['Int']>>;
   round?: InputMaybe<LotteryRoundWhereInput>;
+  roundWinner?: InputMaybe<RoundWinnerWhereInput>;
+  roundWinner_isNull?: InputMaybe<Scalars['Boolean']>;
   round_isNull?: InputMaybe<Scalars['Boolean']>;
   timestamp_eq?: InputMaybe<Scalars['DateTime']>;
   timestamp_gt?: InputMaybe<Scalars['DateTime']>;
@@ -688,6 +915,8 @@ export enum TotalSettleAmountByNumberOrderByInput {
   IdDesc = 'id_DESC',
   NumberAsc = 'number_ASC',
   NumberDesc = 'number_DESC',
+  RoundBlockHashAsc = 'round_blockHash_ASC',
+  RoundBlockHashDesc = 'round_blockHash_DESC',
   RoundDelayAsc = 'round_delay_ASC',
   RoundDelayDesc = 'round_delay_DESC',
   RoundEndAsc = 'round_end_ASC',
@@ -706,8 +935,6 @@ export enum TotalSettleAmountByNumberOrderByInput {
   RoundRoundDesc = 'round_round_DESC',
   RoundStartAsc = 'round_start_ASC',
   RoundStartDesc = 'round_start_DESC',
-  RoundTransactionHashAsc = 'round_transactionHash_ASC',
-  RoundTransactionHashDesc = 'round_transactionHash_DESC',
   TotalAmountAsc = 'totalAmount_ASC',
   TotalAmountDesc = 'totalAmount_DESC'
 }
@@ -770,6 +997,8 @@ export type TotalSettleAmountEdge = {
 export enum TotalSettleAmountOrderByInput {
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  RoundBlockHashAsc = 'round_blockHash_ASC',
+  RoundBlockHashDesc = 'round_blockHash_DESC',
   RoundDelayAsc = 'round_delay_ASC',
   RoundDelayDesc = 'round_delay_DESC',
   RoundEndAsc = 'round_end_ASC',
@@ -788,8 +1017,6 @@ export enum TotalSettleAmountOrderByInput {
   RoundRoundDesc = 'round_round_DESC',
   RoundStartAsc = 'round_start_ASC',
   RoundStartDesc = 'round_start_DESC',
-  RoundTransactionHashAsc = 'round_transactionHash_ASC',
-  RoundTransactionHashDesc = 'round_transactionHash_DESC',
   TotalAmountAsc = 'totalAmount_ASC',
   TotalAmountDesc = 'totalAmount_DESC'
 }
@@ -846,7 +1073,7 @@ export type LotteryRoundsQueryQueryVariables = Exact<{
 }>;
 
 
-export type LotteryRoundsQueryQuery = { __typename?: 'Query', lotteryRounds: Array<{ __typename?: 'LotteryRound', length: number, minPrice: any, rate?: number | null, round: number, repeat: boolean, start: number }> };
+export type LotteryRoundsQueryQuery = { __typename?: 'Query', lotteryRounds: Array<{ __typename?: 'LotteryRound', length: number, end: number, delay: number, minPrice: any, rate?: number | null, repeat: boolean, round: number, start: number, blockHash?: string | null }> };
 
 
-export const LotteryRoundsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LotteryRoundsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LotteryRoundWhereInput"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"orderBy"}},"type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"LotteryRoundOrderByInput"}}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"offset"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"lotteryRounds"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"Variable","name":{"kind":"Name","value":"orderBy"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"offset"},"value":{"kind":"Variable","name":{"kind":"Name","value":"offset"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"length"}},{"kind":"Field","name":{"kind":"Name","value":"minPrice"}},{"kind":"Field","name":{"kind":"Name","value":"rate"}},{"kind":"Field","name":{"kind":"Name","value":"round"}},{"kind":"Field","name":{"kind":"Name","value":"repeat"}},{"kind":"Field","name":{"kind":"Name","value":"start"}}]}}]}}]} as unknown as DocumentNode<LotteryRoundsQueryQuery, LotteryRoundsQueryQueryVariables>;
+export const LotteryRoundsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LotteryRoundsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LotteryRoundWhereInput"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"orderBy"}},"type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"LotteryRoundOrderByInput"}}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"offset"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"lotteryRounds"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"Variable","name":{"kind":"Name","value":"orderBy"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"offset"},"value":{"kind":"Variable","name":{"kind":"Name","value":"offset"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"length"}},{"kind":"Field","name":{"kind":"Name","value":"end"}},{"kind":"Field","name":{"kind":"Name","value":"delay"}},{"kind":"Field","name":{"kind":"Name","value":"minPrice"}},{"kind":"Field","name":{"kind":"Name","value":"rate"}},{"kind":"Field","name":{"kind":"Name","value":"repeat"}},{"kind":"Field","name":{"kind":"Name","value":"round"}},{"kind":"Field","name":{"kind":"Name","value":"start"}},{"kind":"Field","name":{"kind":"Name","value":"blockHash"}}]}}]}}]} as unknown as DocumentNode<LotteryRoundsQueryQuery, LotteryRoundsQueryQueryVariables>;
