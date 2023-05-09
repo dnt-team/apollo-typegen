@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/dnt-team/apollo-typegen/compare/v1.0.3...v1.0.4) (2023-05-09)
+
+
+### Bug Fixes
+
+* **gpl folder:** re generate lib ([423367e](https://github.com/dnt-team/apollo-typegen/commit/423367ec15ecb3ee40e89c3005e3099bd54b90d8))
+* **package.json:** fix build ([b072734](https://github.com/dnt-team/apollo-typegen/commit/b072734da8c78f844a244421ab6a15fff85c01af))
+
 ## [1.0.3](https://github.com/dnt-team/apollo-typegen/compare/v1.0.2...v1.0.3) (2023-05-04)
 
 
