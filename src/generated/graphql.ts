@@ -71,36 +71,36 @@ export type LotteryRoundEdge = {
   node: LotteryRound;
 };
 
-export type LotteryRoundOrderByInput =
-  | 'blockHash_ASC'
-  | 'blockHash_DESC'
-  | 'delay_ASC'
-  | 'delay_DESC'
-  | 'end_ASC'
-  | 'end_DESC'
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'length_ASC'
-  | 'length_DESC'
-  | 'minPrice_ASC'
-  | 'minPrice_DESC'
-  | 'randomNumberGenerated_blockHash_ASC'
-  | 'randomNumberGenerated_blockHash_DESC'
-  | 'randomNumberGenerated_id_ASC'
-  | 'randomNumberGenerated_id_DESC'
-  | 'randomNumberGenerated_number_ASC'
-  | 'randomNumberGenerated_number_DESC'
-  | 'randomNumberGenerated_timestamp_ASC'
-  | 'randomNumberGenerated_timestamp_DESC'
-  | 'rate_ASC'
-  | 'rate_DESC'
-  | 'repeat_ASC'
-  | 'repeat_DESC'
-  | 'round_ASC'
-  | 'round_DESC'
-  | 'start_ASC'
-  | 'start_DESC'
-  | '%future added value';
+export enum LotteryRoundOrderByInput {
+  BlockHashAsc = 0,
+  BlockHashDesc = 1,
+  DelayAsc = 2,
+  DelayDesc = 3,
+  EndAsc = 4,
+  EndDesc = 5,
+  IdAsc = 6,
+  IdDesc = 7,
+  LengthAsc = 8,
+  LengthDesc = 9,
+  MinPriceAsc = 10,
+  MinPriceDesc = 11,
+  RandomNumberGeneratedBlockHashAsc = 12,
+  RandomNumberGeneratedBlockHashDesc = 13,
+  RandomNumberGeneratedIdAsc = 14,
+  RandomNumberGeneratedIdDesc = 15,
+  RandomNumberGeneratedNumberAsc = 16,
+  RandomNumberGeneratedNumberDesc = 17,
+  RandomNumberGeneratedTimestampAsc = 18,
+  RandomNumberGeneratedTimestampDesc = 19,
+  RateAsc = 20,
+  RateDesc = 21,
+  RepeatAsc = 22,
+  RepeatDesc = 23,
+  RoundAsc = 24,
+  RoundDesc = 25,
+  StartAsc = 26,
+  StartDesc = 27
+}
 
 export type LotteryRoundWhereInput = {
   AND?: InputMaybe<Array<LotteryRoundWhereInput>>;
@@ -442,36 +442,36 @@ export type RandomNumberGeneratedEdge = {
   node: RandomNumberGenerated;
 };
 
-export type RandomNumberGeneratedOrderByInput =
-  | 'blockHash_ASC'
-  | 'blockHash_DESC'
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'number_ASC'
-  | 'number_DESC'
-  | 'round_blockHash_ASC'
-  | 'round_blockHash_DESC'
-  | 'round_delay_ASC'
-  | 'round_delay_DESC'
-  | 'round_end_ASC'
-  | 'round_end_DESC'
-  | 'round_id_ASC'
-  | 'round_id_DESC'
-  | 'round_length_ASC'
-  | 'round_length_DESC'
-  | 'round_minPrice_ASC'
-  | 'round_minPrice_DESC'
-  | 'round_rate_ASC'
-  | 'round_rate_DESC'
-  | 'round_repeat_ASC'
-  | 'round_repeat_DESC'
-  | 'round_round_ASC'
-  | 'round_round_DESC'
-  | 'round_start_ASC'
-  | 'round_start_DESC'
-  | 'timestamp_ASC'
-  | 'timestamp_DESC'
-  | '%future added value';
+export enum RandomNumberGeneratedOrderByInput {
+  BlockHashAsc = 0,
+  BlockHashDesc = 1,
+  IdAsc = 2,
+  IdDesc = 3,
+  NumberAsc = 4,
+  NumberDesc = 5,
+  RoundBlockHashAsc = 6,
+  RoundBlockHashDesc = 7,
+  RoundDelayAsc = 8,
+  RoundDelayDesc = 9,
+  RoundEndAsc = 10,
+  RoundEndDesc = 11,
+  RoundIdAsc = 12,
+  RoundIdDesc = 13,
+  RoundLengthAsc = 14,
+  RoundLengthDesc = 15,
+  RoundMinPriceAsc = 16,
+  RoundMinPriceDesc = 17,
+  RoundRateAsc = 18,
+  RoundRateDesc = 19,
+  RoundRepeatAsc = 20,
+  RoundRepeatDesc = 21,
+  RoundRoundAsc = 22,
+  RoundRoundDesc = 23,
+  RoundStartAsc = 24,
+  RoundStartDesc = 25,
+  TimestampAsc = 26,
+  TimestampDesc = 27
+}
 
 export type RandomNumberGeneratedWhereInput = {
   AND?: InputMaybe<Array<RandomNumberGeneratedWhereInput>>;
@@ -552,44 +552,44 @@ export type RoundWinnerEdge = {
   node: RoundWinner;
 };
 
-export type RoundWinnerOrderByInput =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'round_blockHash_ASC'
-  | 'round_blockHash_DESC'
-  | 'round_delay_ASC'
-  | 'round_delay_DESC'
-  | 'round_end_ASC'
-  | 'round_end_DESC'
-  | 'round_id_ASC'
-  | 'round_id_DESC'
-  | 'round_length_ASC'
-  | 'round_length_DESC'
-  | 'round_minPrice_ASC'
-  | 'round_minPrice_DESC'
-  | 'round_rate_ASC'
-  | 'round_rate_DESC'
-  | 'round_repeat_ASC'
-  | 'round_repeat_DESC'
-  | 'round_round_ASC'
-  | 'round_round_DESC'
-  | 'round_start_ASC'
-  | 'round_start_DESC'
-  | 'ticketBought_amount_ASC'
-  | 'ticketBought_amount_DESC'
-  | 'ticketBought_blockNumber_ASC'
-  | 'ticketBought_blockNumber_DESC'
-  | 'ticketBought_id_ASC'
-  | 'ticketBought_id_DESC'
-  | 'ticketBought_number_ASC'
-  | 'ticketBought_number_DESC'
-  | 'ticketBought_timestamp_ASC'
-  | 'ticketBought_timestamp_DESC'
-  | 'ticketBought_transactionHash_ASC'
-  | 'ticketBought_transactionHash_DESC'
-  | 'ticketBought_who_ASC'
-  | 'ticketBought_who_DESC'
-  | '%future added value';
+export enum RoundWinnerOrderByInput {
+  IdAsc = 0,
+  IdDesc = 1,
+  RoundBlockHashAsc = 2,
+  RoundBlockHashDesc = 3,
+  RoundDelayAsc = 4,
+  RoundDelayDesc = 5,
+  RoundEndAsc = 6,
+  RoundEndDesc = 7,
+  RoundIdAsc = 8,
+  RoundIdDesc = 9,
+  RoundLengthAsc = 10,
+  RoundLengthDesc = 11,
+  RoundMinPriceAsc = 12,
+  RoundMinPriceDesc = 13,
+  RoundRateAsc = 14,
+  RoundRateDesc = 15,
+  RoundRepeatAsc = 16,
+  RoundRepeatDesc = 17,
+  RoundRoundAsc = 18,
+  RoundRoundDesc = 19,
+  RoundStartAsc = 20,
+  RoundStartDesc = 21,
+  TicketBoughtAmountAsc = 22,
+  TicketBoughtAmountDesc = 23,
+  TicketBoughtBlockNumberAsc = 24,
+  TicketBoughtBlockNumberDesc = 25,
+  TicketBoughtIdAsc = 26,
+  TicketBoughtIdDesc = 27,
+  TicketBoughtNumberAsc = 28,
+  TicketBoughtNumberDesc = 29,
+  TicketBoughtTimestampAsc = 30,
+  TicketBoughtTimestampDesc = 31,
+  TicketBoughtTransactionHashAsc = 32,
+  TicketBoughtTransactionHashDesc = 33,
+  TicketBoughtWhoAsc = 34,
+  TicketBoughtWhoDesc = 35
+}
 
 export type RoundWinnerWhereInput = {
   AND?: InputMaybe<Array<RoundWinnerWhereInput>>;
@@ -743,44 +743,44 @@ export type TicketBoughtEdge = {
   node: TicketBought;
 };
 
-export type TicketBoughtOrderByInput =
-  | 'amount_ASC'
-  | 'amount_DESC'
-  | 'blockNumber_ASC'
-  | 'blockNumber_DESC'
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'number_ASC'
-  | 'number_DESC'
-  | 'roundWinner_id_ASC'
-  | 'roundWinner_id_DESC'
-  | 'round_blockHash_ASC'
-  | 'round_blockHash_DESC'
-  | 'round_delay_ASC'
-  | 'round_delay_DESC'
-  | 'round_end_ASC'
-  | 'round_end_DESC'
-  | 'round_id_ASC'
-  | 'round_id_DESC'
-  | 'round_length_ASC'
-  | 'round_length_DESC'
-  | 'round_minPrice_ASC'
-  | 'round_minPrice_DESC'
-  | 'round_rate_ASC'
-  | 'round_rate_DESC'
-  | 'round_repeat_ASC'
-  | 'round_repeat_DESC'
-  | 'round_round_ASC'
-  | 'round_round_DESC'
-  | 'round_start_ASC'
-  | 'round_start_DESC'
-  | 'timestamp_ASC'
-  | 'timestamp_DESC'
-  | 'transactionHash_ASC'
-  | 'transactionHash_DESC'
-  | 'who_ASC'
-  | 'who_DESC'
-  | '%future added value';
+export enum TicketBoughtOrderByInput {
+  AmountAsc = 0,
+  AmountDesc = 1,
+  BlockNumberAsc = 2,
+  BlockNumberDesc = 3,
+  IdAsc = 4,
+  IdDesc = 5,
+  NumberAsc = 6,
+  NumberDesc = 7,
+  RoundWinnerIdAsc = 8,
+  RoundWinnerIdDesc = 9,
+  RoundBlockHashAsc = 10,
+  RoundBlockHashDesc = 11,
+  RoundDelayAsc = 12,
+  RoundDelayDesc = 13,
+  RoundEndAsc = 14,
+  RoundEndDesc = 15,
+  RoundIdAsc = 16,
+  RoundIdDesc = 17,
+  RoundLengthAsc = 18,
+  RoundLengthDesc = 19,
+  RoundMinPriceAsc = 20,
+  RoundMinPriceDesc = 21,
+  RoundRateAsc = 22,
+  RoundRateDesc = 23,
+  RoundRepeatAsc = 24,
+  RoundRepeatDesc = 25,
+  RoundRoundAsc = 26,
+  RoundRoundDesc = 27,
+  RoundStartAsc = 28,
+  RoundStartDesc = 29,
+  TimestampAsc = 30,
+  TimestampDesc = 31,
+  TransactionHashAsc = 32,
+  TransactionHashDesc = 33,
+  WhoAsc = 34,
+  WhoDesc = 35
+}
 
 export type TicketBoughtWhereInput = {
   AND?: InputMaybe<Array<TicketBoughtWhereInput>>;
@@ -906,34 +906,34 @@ export type TotalSettleAmountByNumberEdge = {
   node: TotalSettleAmountByNumber;
 };
 
-export type TotalSettleAmountByNumberOrderByInput =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'number_ASC'
-  | 'number_DESC'
-  | 'round_blockHash_ASC'
-  | 'round_blockHash_DESC'
-  | 'round_delay_ASC'
-  | 'round_delay_DESC'
-  | 'round_end_ASC'
-  | 'round_end_DESC'
-  | 'round_id_ASC'
-  | 'round_id_DESC'
-  | 'round_length_ASC'
-  | 'round_length_DESC'
-  | 'round_minPrice_ASC'
-  | 'round_minPrice_DESC'
-  | 'round_rate_ASC'
-  | 'round_rate_DESC'
-  | 'round_repeat_ASC'
-  | 'round_repeat_DESC'
-  | 'round_round_ASC'
-  | 'round_round_DESC'
-  | 'round_start_ASC'
-  | 'round_start_DESC'
-  | 'totalAmount_ASC'
-  | 'totalAmount_DESC'
-  | '%future added value';
+export enum TotalSettleAmountByNumberOrderByInput {
+  IdAsc = 0,
+  IdDesc = 1,
+  NumberAsc = 2,
+  NumberDesc = 3,
+  RoundBlockHashAsc = 4,
+  RoundBlockHashDesc = 5,
+  RoundDelayAsc = 6,
+  RoundDelayDesc = 7,
+  RoundEndAsc = 8,
+  RoundEndDesc = 9,
+  RoundIdAsc = 10,
+  RoundIdDesc = 11,
+  RoundLengthAsc = 12,
+  RoundLengthDesc = 13,
+  RoundMinPriceAsc = 14,
+  RoundMinPriceDesc = 15,
+  RoundRateAsc = 16,
+  RoundRateDesc = 17,
+  RoundRepeatAsc = 18,
+  RoundRepeatDesc = 19,
+  RoundRoundAsc = 20,
+  RoundRoundDesc = 21,
+  RoundStartAsc = 22,
+  RoundStartDesc = 23,
+  TotalAmountAsc = 24,
+  TotalAmountDesc = 25
+}
 
 export type TotalSettleAmountByNumberWhereInput = {
   AND?: InputMaybe<Array<TotalSettleAmountByNumberWhereInput>>;
@@ -990,32 +990,32 @@ export type TotalSettleAmountEdge = {
   node: TotalSettleAmount;
 };
 
-export type TotalSettleAmountOrderByInput =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'round_blockHash_ASC'
-  | 'round_blockHash_DESC'
-  | 'round_delay_ASC'
-  | 'round_delay_DESC'
-  | 'round_end_ASC'
-  | 'round_end_DESC'
-  | 'round_id_ASC'
-  | 'round_id_DESC'
-  | 'round_length_ASC'
-  | 'round_length_DESC'
-  | 'round_minPrice_ASC'
-  | 'round_minPrice_DESC'
-  | 'round_rate_ASC'
-  | 'round_rate_DESC'
-  | 'round_repeat_ASC'
-  | 'round_repeat_DESC'
-  | 'round_round_ASC'
-  | 'round_round_DESC'
-  | 'round_start_ASC'
-  | 'round_start_DESC'
-  | 'totalAmount_ASC'
-  | 'totalAmount_DESC'
-  | '%future added value';
+export enum TotalSettleAmountOrderByInput {
+  IdAsc = 0,
+  IdDesc = 1,
+  RoundBlockHashAsc = 2,
+  RoundBlockHashDesc = 3,
+  RoundDelayAsc = 4,
+  RoundDelayDesc = 5,
+  RoundEndAsc = 6,
+  RoundEndDesc = 7,
+  RoundIdAsc = 8,
+  RoundIdDesc = 9,
+  RoundLengthAsc = 10,
+  RoundLengthDesc = 11,
+  RoundMinPriceAsc = 12,
+  RoundMinPriceDesc = 13,
+  RoundRateAsc = 14,
+  RoundRateDesc = 15,
+  RoundRepeatAsc = 16,
+  RoundRepeatDesc = 17,
+  RoundRoundAsc = 18,
+  RoundRoundDesc = 19,
+  RoundStartAsc = 20,
+  RoundStartDesc = 21,
+  TotalAmountAsc = 22,
+  TotalAmountDesc = 23
+}
 
 export type TotalSettleAmountWhereInput = {
   AND?: InputMaybe<Array<TotalSettleAmountWhereInput>>;

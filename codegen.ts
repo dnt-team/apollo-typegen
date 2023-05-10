@@ -10,7 +10,6 @@ const config: CodegenConfig = {
       config: {
         maybeValue: 'T | null | undefined',
         numericEnums: true,
-        futureProofEnums: true,
       },
     },
   },
