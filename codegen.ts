@@ -9,7 +9,7 @@ const config: CodegenConfig = {
       plugins: ['typescript'],
       config: {
         maybeValue: 'T | null | undefined',
-        numericEnums: true,
+        enumsAsConst: true,
       },
     },
   },

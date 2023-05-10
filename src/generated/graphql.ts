@@ -71,37 +71,38 @@ export type LotteryRoundEdge = {
   node: LotteryRound;
 };
 
-export enum LotteryRoundOrderByInput {
-  BlockHashAsc = 0,
-  BlockHashDesc = 1,
-  DelayAsc = 2,
-  DelayDesc = 3,
-  EndAsc = 4,
-  EndDesc = 5,
-  IdAsc = 6,
-  IdDesc = 7,
-  LengthAsc = 8,
-  LengthDesc = 9,
-  MinPriceAsc = 10,
-  MinPriceDesc = 11,
-  RandomNumberGeneratedBlockHashAsc = 12,
-  RandomNumberGeneratedBlockHashDesc = 13,
-  RandomNumberGeneratedIdAsc = 14,
-  RandomNumberGeneratedIdDesc = 15,
-  RandomNumberGeneratedNumberAsc = 16,
-  RandomNumberGeneratedNumberDesc = 17,
-  RandomNumberGeneratedTimestampAsc = 18,
-  RandomNumberGeneratedTimestampDesc = 19,
-  RateAsc = 20,
-  RateDesc = 21,
-  RepeatAsc = 22,
-  RepeatDesc = 23,
-  RoundAsc = 24,
-  RoundDesc = 25,
-  StartAsc = 26,
-  StartDesc = 27
-}
+export const LotteryRoundOrderByInput = {
+  BlockHashAsc: 'blockHash_ASC',
+  BlockHashDesc: 'blockHash_DESC',
+  DelayAsc: 'delay_ASC',
+  DelayDesc: 'delay_DESC',
+  EndAsc: 'end_ASC',
+  EndDesc: 'end_DESC',
+  IdAsc: 'id_ASC',
+  IdDesc: 'id_DESC',
+  LengthAsc: 'length_ASC',
+  LengthDesc: 'length_DESC',
+  MinPriceAsc: 'minPrice_ASC',
+  MinPriceDesc: 'minPrice_DESC',
+  RandomNumberGeneratedBlockHashAsc: 'randomNumberGenerated_blockHash_ASC',
+  RandomNumberGeneratedBlockHashDesc: 'randomNumberGenerated_blockHash_DESC',
+  RandomNumberGeneratedIdAsc: 'randomNumberGenerated_id_ASC',
+  RandomNumberGeneratedIdDesc: 'randomNumberGenerated_id_DESC',
+  RandomNumberGeneratedNumberAsc: 'randomNumberGenerated_number_ASC',
+  RandomNumberGeneratedNumberDesc: 'randomNumberGenerated_number_DESC',
+  RandomNumberGeneratedTimestampAsc: 'randomNumberGenerated_timestamp_ASC',
+  RandomNumberGeneratedTimestampDesc: 'randomNumberGenerated_timestamp_DESC',
+  RateAsc: 'rate_ASC',
+  RateDesc: 'rate_DESC',
+  RepeatAsc: 'repeat_ASC',
+  RepeatDesc: 'repeat_DESC',
+  RoundAsc: 'round_ASC',
+  RoundDesc: 'round_DESC',
+  StartAsc: 'start_ASC',
+  StartDesc: 'start_DESC'
+} as const;
 
+export type LotteryRoundOrderByInput = typeof LotteryRoundOrderByInput[keyof typeof LotteryRoundOrderByInput];
 export type LotteryRoundWhereInput = {
   AND?: InputMaybe<Array<LotteryRoundWhereInput>>;
   OR?: InputMaybe<Array<LotteryRoundWhereInput>>;
@@ -442,37 +443,38 @@ export type RandomNumberGeneratedEdge = {
   node: RandomNumberGenerated;
 };
 
-export enum RandomNumberGeneratedOrderByInput {
-  BlockHashAsc = 0,
-  BlockHashDesc = 1,
-  IdAsc = 2,
-  IdDesc = 3,
-  NumberAsc = 4,
-  NumberDesc = 5,
-  RoundBlockHashAsc = 6,
-  RoundBlockHashDesc = 7,
-  RoundDelayAsc = 8,
-  RoundDelayDesc = 9,
-  RoundEndAsc = 10,
-  RoundEndDesc = 11,
-  RoundIdAsc = 12,
-  RoundIdDesc = 13,
-  RoundLengthAsc = 14,
-  RoundLengthDesc = 15,
-  RoundMinPriceAsc = 16,
-  RoundMinPriceDesc = 17,
-  RoundRateAsc = 18,
-  RoundRateDesc = 19,
-  RoundRepeatAsc = 20,
-  RoundRepeatDesc = 21,
-  RoundRoundAsc = 22,
-  RoundRoundDesc = 23,
-  RoundStartAsc = 24,
-  RoundStartDesc = 25,
-  TimestampAsc = 26,
-  TimestampDesc = 27
-}
+export const RandomNumberGeneratedOrderByInput = {
+  BlockHashAsc: 'blockHash_ASC',
+  BlockHashDesc: 'blockHash_DESC',
+  IdAsc: 'id_ASC',
+  IdDesc: 'id_DESC',
+  NumberAsc: 'number_ASC',
+  NumberDesc: 'number_DESC',
+  RoundBlockHashAsc: 'round_blockHash_ASC',
+  RoundBlockHashDesc: 'round_blockHash_DESC',
+  RoundDelayAsc: 'round_delay_ASC',
+  RoundDelayDesc: 'round_delay_DESC',
+  RoundEndAsc: 'round_end_ASC',
+  RoundEndDesc: 'round_end_DESC',
+  RoundIdAsc: 'round_id_ASC',
+  RoundIdDesc: 'round_id_DESC',
+  RoundLengthAsc: 'round_length_ASC',
+  RoundLengthDesc: 'round_length_DESC',
+  RoundMinPriceAsc: 'round_minPrice_ASC',
+  RoundMinPriceDesc: 'round_minPrice_DESC',
+  RoundRateAsc: 'round_rate_ASC',
+  RoundRateDesc: 'round_rate_DESC',
+  RoundRepeatAsc: 'round_repeat_ASC',
+  RoundRepeatDesc: 'round_repeat_DESC',
+  RoundRoundAsc: 'round_round_ASC',
+  RoundRoundDesc: 'round_round_DESC',
+  RoundStartAsc: 'round_start_ASC',
+  RoundStartDesc: 'round_start_DESC',
+  TimestampAsc: 'timestamp_ASC',
+  TimestampDesc: 'timestamp_DESC'
+} as const;
 
+export type RandomNumberGeneratedOrderByInput = typeof RandomNumberGeneratedOrderByInput[keyof typeof RandomNumberGeneratedOrderByInput];
 export type RandomNumberGeneratedWhereInput = {
   AND?: InputMaybe<Array<RandomNumberGeneratedWhereInput>>;
   OR?: InputMaybe<Array<RandomNumberGeneratedWhereInput>>;
@@ -552,45 +554,46 @@ export type RoundWinnerEdge = {
   node: RoundWinner;
 };
 
-export enum RoundWinnerOrderByInput {
-  IdAsc = 0,
-  IdDesc = 1,
-  RoundBlockHashAsc = 2,
-  RoundBlockHashDesc = 3,
-  RoundDelayAsc = 4,
-  RoundDelayDesc = 5,
-  RoundEndAsc = 6,
-  RoundEndDesc = 7,
-  RoundIdAsc = 8,
-  RoundIdDesc = 9,
-  RoundLengthAsc = 10,
-  RoundLengthDesc = 11,
-  RoundMinPriceAsc = 12,
-  RoundMinPriceDesc = 13,
-  RoundRateAsc = 14,
-  RoundRateDesc = 15,
-  RoundRepeatAsc = 16,
-  RoundRepeatDesc = 17,
-  RoundRoundAsc = 18,
-  RoundRoundDesc = 19,
-  RoundStartAsc = 20,
-  RoundStartDesc = 21,
-  TicketBoughtAmountAsc = 22,
-  TicketBoughtAmountDesc = 23,
-  TicketBoughtBlockNumberAsc = 24,
-  TicketBoughtBlockNumberDesc = 25,
-  TicketBoughtIdAsc = 26,
-  TicketBoughtIdDesc = 27,
-  TicketBoughtNumberAsc = 28,
-  TicketBoughtNumberDesc = 29,
-  TicketBoughtTimestampAsc = 30,
-  TicketBoughtTimestampDesc = 31,
-  TicketBoughtTransactionHashAsc = 32,
-  TicketBoughtTransactionHashDesc = 33,
-  TicketBoughtWhoAsc = 34,
-  TicketBoughtWhoDesc = 35
-}
+export const RoundWinnerOrderByInput = {
+  IdAsc: 'id_ASC',
+  IdDesc: 'id_DESC',
+  RoundBlockHashAsc: 'round_blockHash_ASC',
+  RoundBlockHashDesc: 'round_blockHash_DESC',
+  RoundDelayAsc: 'round_delay_ASC',
+  RoundDelayDesc: 'round_delay_DESC',
+  RoundEndAsc: 'round_end_ASC',
+  RoundEndDesc: 'round_end_DESC',
+  RoundIdAsc: 'round_id_ASC',
+  RoundIdDesc: 'round_id_DESC',
+  RoundLengthAsc: 'round_length_ASC',
+  RoundLengthDesc: 'round_length_DESC',
+  RoundMinPriceAsc: 'round_minPrice_ASC',
+  RoundMinPriceDesc: 'round_minPrice_DESC',
+  RoundRateAsc: 'round_rate_ASC',
+  RoundRateDesc: 'round_rate_DESC',
+  RoundRepeatAsc: 'round_repeat_ASC',
+  RoundRepeatDesc: 'round_repeat_DESC',
+  RoundRoundAsc: 'round_round_ASC',
+  RoundRoundDesc: 'round_round_DESC',
+  RoundStartAsc: 'round_start_ASC',
+  RoundStartDesc: 'round_start_DESC',
+  TicketBoughtAmountAsc: 'ticketBought_amount_ASC',
+  TicketBoughtAmountDesc: 'ticketBought_amount_DESC',
+  TicketBoughtBlockNumberAsc: 'ticketBought_blockNumber_ASC',
+  TicketBoughtBlockNumberDesc: 'ticketBought_blockNumber_DESC',
+  TicketBoughtIdAsc: 'ticketBought_id_ASC',
+  TicketBoughtIdDesc: 'ticketBought_id_DESC',
+  TicketBoughtNumberAsc: 'ticketBought_number_ASC',
+  TicketBoughtNumberDesc: 'ticketBought_number_DESC',
+  TicketBoughtTimestampAsc: 'ticketBought_timestamp_ASC',
+  TicketBoughtTimestampDesc: 'ticketBought_timestamp_DESC',
+  TicketBoughtTransactionHashAsc: 'ticketBought_transactionHash_ASC',
+  TicketBoughtTransactionHashDesc: 'ticketBought_transactionHash_DESC',
+  TicketBoughtWhoAsc: 'ticketBought_who_ASC',
+  TicketBoughtWhoDesc: 'ticketBought_who_DESC'
+} as const;
 
+export type RoundWinnerOrderByInput = typeof RoundWinnerOrderByInput[keyof typeof RoundWinnerOrderByInput];
 export type RoundWinnerWhereInput = {
   AND?: InputMaybe<Array<RoundWinnerWhereInput>>;
   OR?: InputMaybe<Array<RoundWinnerWhereInput>>;
@@ -743,45 +746,46 @@ export type TicketBoughtEdge = {
   node: TicketBought;
 };
 
-export enum TicketBoughtOrderByInput {
-  AmountAsc = 0,
-  AmountDesc = 1,
-  BlockNumberAsc = 2,
-  BlockNumberDesc = 3,
-  IdAsc = 4,
-  IdDesc = 5,
-  NumberAsc = 6,
-  NumberDesc = 7,
-  RoundWinnerIdAsc = 8,
-  RoundWinnerIdDesc = 9,
-  RoundBlockHashAsc = 10,
-  RoundBlockHashDesc = 11,
-  RoundDelayAsc = 12,
-  RoundDelayDesc = 13,
-  RoundEndAsc = 14,
-  RoundEndDesc = 15,
-  RoundIdAsc = 16,
-  RoundIdDesc = 17,
-  RoundLengthAsc = 18,
-  RoundLengthDesc = 19,
-  RoundMinPriceAsc = 20,
-  RoundMinPriceDesc = 21,
-  RoundRateAsc = 22,
-  RoundRateDesc = 23,
-  RoundRepeatAsc = 24,
-  RoundRepeatDesc = 25,
-  RoundRoundAsc = 26,
-  RoundRoundDesc = 27,
-  RoundStartAsc = 28,
-  RoundStartDesc = 29,
-  TimestampAsc = 30,
-  TimestampDesc = 31,
-  TransactionHashAsc = 32,
-  TransactionHashDesc = 33,
-  WhoAsc = 34,
-  WhoDesc = 35
-}
+export const TicketBoughtOrderByInput = {
+  AmountAsc: 'amount_ASC',
+  AmountDesc: 'amount_DESC',
+  BlockNumberAsc: 'blockNumber_ASC',
+  BlockNumberDesc: 'blockNumber_DESC',
+  IdAsc: 'id_ASC',
+  IdDesc: 'id_DESC',
+  NumberAsc: 'number_ASC',
+  NumberDesc: 'number_DESC',
+  RoundWinnerIdAsc: 'roundWinner_id_ASC',
+  RoundWinnerIdDesc: 'roundWinner_id_DESC',
+  RoundBlockHashAsc: 'round_blockHash_ASC',
+  RoundBlockHashDesc: 'round_blockHash_DESC',
+  RoundDelayAsc: 'round_delay_ASC',
+  RoundDelayDesc: 'round_delay_DESC',
+  RoundEndAsc: 'round_end_ASC',
+  RoundEndDesc: 'round_end_DESC',
+  RoundIdAsc: 'round_id_ASC',
+  RoundIdDesc: 'round_id_DESC',
+  RoundLengthAsc: 'round_length_ASC',
+  RoundLengthDesc: 'round_length_DESC',
+  RoundMinPriceAsc: 'round_minPrice_ASC',
+  RoundMinPriceDesc: 'round_minPrice_DESC',
+  RoundRateAsc: 'round_rate_ASC',
+  RoundRateDesc: 'round_rate_DESC',
+  RoundRepeatAsc: 'round_repeat_ASC',
+  RoundRepeatDesc: 'round_repeat_DESC',
+  RoundRoundAsc: 'round_round_ASC',
+  RoundRoundDesc: 'round_round_DESC',
+  RoundStartAsc: 'round_start_ASC',
+  RoundStartDesc: 'round_start_DESC',
+  TimestampAsc: 'timestamp_ASC',
+  TimestampDesc: 'timestamp_DESC',
+  TransactionHashAsc: 'transactionHash_ASC',
+  TransactionHashDesc: 'transactionHash_DESC',
+  WhoAsc: 'who_ASC',
+  WhoDesc: 'who_DESC'
+} as const;
 
+export type TicketBoughtOrderByInput = typeof TicketBoughtOrderByInput[keyof typeof TicketBoughtOrderByInput];
 export type TicketBoughtWhereInput = {
   AND?: InputMaybe<Array<TicketBoughtWhereInput>>;
   OR?: InputMaybe<Array<TicketBoughtWhereInput>>;
@@ -906,35 +910,36 @@ export type TotalSettleAmountByNumberEdge = {
   node: TotalSettleAmountByNumber;
 };
 
-export enum TotalSettleAmountByNumberOrderByInput {
-  IdAsc = 0,
-  IdDesc = 1,
-  NumberAsc = 2,
-  NumberDesc = 3,
-  RoundBlockHashAsc = 4,
-  RoundBlockHashDesc = 5,
-  RoundDelayAsc = 6,
-  RoundDelayDesc = 7,
-  RoundEndAsc = 8,
-  RoundEndDesc = 9,
-  RoundIdAsc = 10,
-  RoundIdDesc = 11,
-  RoundLengthAsc = 12,
-  RoundLengthDesc = 13,
-  RoundMinPriceAsc = 14,
-  RoundMinPriceDesc = 15,
-  RoundRateAsc = 16,
-  RoundRateDesc = 17,
-  RoundRepeatAsc = 18,
-  RoundRepeatDesc = 19,
-  RoundRoundAsc = 20,
-  RoundRoundDesc = 21,
-  RoundStartAsc = 22,
-  RoundStartDesc = 23,
-  TotalAmountAsc = 24,
-  TotalAmountDesc = 25
-}
+export const TotalSettleAmountByNumberOrderByInput = {
+  IdAsc: 'id_ASC',
+  IdDesc: 'id_DESC',
+  NumberAsc: 'number_ASC',
+  NumberDesc: 'number_DESC',
+  RoundBlockHashAsc: 'round_blockHash_ASC',
+  RoundBlockHashDesc: 'round_blockHash_DESC',
+  RoundDelayAsc: 'round_delay_ASC',
+  RoundDelayDesc: 'round_delay_DESC',
+  RoundEndAsc: 'round_end_ASC',
+  RoundEndDesc: 'round_end_DESC',
+  RoundIdAsc: 'round_id_ASC',
+  RoundIdDesc: 'round_id_DESC',
+  RoundLengthAsc: 'round_length_ASC',
+  RoundLengthDesc: 'round_length_DESC',
+  RoundMinPriceAsc: 'round_minPrice_ASC',
+  RoundMinPriceDesc: 'round_minPrice_DESC',
+  RoundRateAsc: 'round_rate_ASC',
+  RoundRateDesc: 'round_rate_DESC',
+  RoundRepeatAsc: 'round_repeat_ASC',
+  RoundRepeatDesc: 'round_repeat_DESC',
+  RoundRoundAsc: 'round_round_ASC',
+  RoundRoundDesc: 'round_round_DESC',
+  RoundStartAsc: 'round_start_ASC',
+  RoundStartDesc: 'round_start_DESC',
+  TotalAmountAsc: 'totalAmount_ASC',
+  TotalAmountDesc: 'totalAmount_DESC'
+} as const;
 
+export type TotalSettleAmountByNumberOrderByInput = typeof TotalSettleAmountByNumberOrderByInput[keyof typeof TotalSettleAmountByNumberOrderByInput];
 export type TotalSettleAmountByNumberWhereInput = {
   AND?: InputMaybe<Array<TotalSettleAmountByNumberWhereInput>>;
   OR?: InputMaybe<Array<TotalSettleAmountByNumberWhereInput>>;
@@ -990,33 +995,34 @@ export type TotalSettleAmountEdge = {
   node: TotalSettleAmount;
 };
 
-export enum TotalSettleAmountOrderByInput {
-  IdAsc = 0,
-  IdDesc = 1,
-  RoundBlockHashAsc = 2,
-  RoundBlockHashDesc = 3,
-  RoundDelayAsc = 4,
-  RoundDelayDesc = 5,
-  RoundEndAsc = 6,
-  RoundEndDesc = 7,
-  RoundIdAsc = 8,
-  RoundIdDesc = 9,
-  RoundLengthAsc = 10,
-  RoundLengthDesc = 11,
-  RoundMinPriceAsc = 12,
-  RoundMinPriceDesc = 13,
-  RoundRateAsc = 14,
-  RoundRateDesc = 15,
-  RoundRepeatAsc = 16,
-  RoundRepeatDesc = 17,
-  RoundRoundAsc = 18,
-  RoundRoundDesc = 19,
-  RoundStartAsc = 20,
-  RoundStartDesc = 21,
-  TotalAmountAsc = 22,
-  TotalAmountDesc = 23
-}
+export const TotalSettleAmountOrderByInput = {
+  IdAsc: 'id_ASC',
+  IdDesc: 'id_DESC',
+  RoundBlockHashAsc: 'round_blockHash_ASC',
+  RoundBlockHashDesc: 'round_blockHash_DESC',
+  RoundDelayAsc: 'round_delay_ASC',
+  RoundDelayDesc: 'round_delay_DESC',
+  RoundEndAsc: 'round_end_ASC',
+  RoundEndDesc: 'round_end_DESC',
+  RoundIdAsc: 'round_id_ASC',
+  RoundIdDesc: 'round_id_DESC',
+  RoundLengthAsc: 'round_length_ASC',
+  RoundLengthDesc: 'round_length_DESC',
+  RoundMinPriceAsc: 'round_minPrice_ASC',
+  RoundMinPriceDesc: 'round_minPrice_DESC',
+  RoundRateAsc: 'round_rate_ASC',
+  RoundRateDesc: 'round_rate_DESC',
+  RoundRepeatAsc: 'round_repeat_ASC',
+  RoundRepeatDesc: 'round_repeat_DESC',
+  RoundRoundAsc: 'round_round_ASC',
+  RoundRoundDesc: 'round_round_DESC',
+  RoundStartAsc: 'round_start_ASC',
+  RoundStartDesc: 'round_start_DESC',
+  TotalAmountAsc: 'totalAmount_ASC',
+  TotalAmountDesc: 'totalAmount_DESC'
+} as const;
 
+export type TotalSettleAmountOrderByInput = typeof TotalSettleAmountOrderByInput[keyof typeof TotalSettleAmountOrderByInput];
 export type TotalSettleAmountWhereInput = {
   AND?: InputMaybe<Array<TotalSettleAmountWhereInput>>;
   OR?: InputMaybe<Array<TotalSettleAmountWhereInput>>;
