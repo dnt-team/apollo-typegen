@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/dnt-team/apollo-typegen/compare/v1.0.9...v1.0.10) (2023-05-10)
+
+
+### Bug Fixes
+
+* enum to const ([7c3e5d4](https://github.com/dnt-team/apollo-typegen/commit/7c3e5d4417d381c52288821aa10062254d57c49c))
+
 ## [1.0.9](https://github.com/dnt-team/apollo-typegen/compare/v1.0.8...v1.0.9) (2023-05-10)
 
 
