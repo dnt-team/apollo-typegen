@@ -1,10 +1,8 @@
-import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
+export type Maybe<T> = T | null | undefined;
+export type InputMaybe<T> = T | null | undefined;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -73,36 +71,36 @@ export type LotteryRoundEdge = {
   node: LotteryRound;
 };
 
-export enum LotteryRoundOrderByInput {
-  BlockHashAsc = 'blockHash_ASC',
-  BlockHashDesc = 'blockHash_DESC',
-  DelayAsc = 'delay_ASC',
-  DelayDesc = 'delay_DESC',
-  EndAsc = 'end_ASC',
-  EndDesc = 'end_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  LengthAsc = 'length_ASC',
-  LengthDesc = 'length_DESC',
-  MinPriceAsc = 'minPrice_ASC',
-  MinPriceDesc = 'minPrice_DESC',
-  RandomNumberGeneratedBlockHashAsc = 'randomNumberGenerated_blockHash_ASC',
-  RandomNumberGeneratedBlockHashDesc = 'randomNumberGenerated_blockHash_DESC',
-  RandomNumberGeneratedIdAsc = 'randomNumberGenerated_id_ASC',
-  RandomNumberGeneratedIdDesc = 'randomNumberGenerated_id_DESC',
-  RandomNumberGeneratedNumberAsc = 'randomNumberGenerated_number_ASC',
-  RandomNumberGeneratedNumberDesc = 'randomNumberGenerated_number_DESC',
-  RandomNumberGeneratedTimestampAsc = 'randomNumberGenerated_timestamp_ASC',
-  RandomNumberGeneratedTimestampDesc = 'randomNumberGenerated_timestamp_DESC',
-  RateAsc = 'rate_ASC',
-  RateDesc = 'rate_DESC',
-  RepeatAsc = 'repeat_ASC',
-  RepeatDesc = 'repeat_DESC',
-  RoundAsc = 'round_ASC',
-  RoundDesc = 'round_DESC',
-  StartAsc = 'start_ASC',
-  StartDesc = 'start_DESC'
-}
+export type LotteryRoundOrderByInput =
+  | 'blockHash_ASC'
+  | 'blockHash_DESC'
+  | 'delay_ASC'
+  | 'delay_DESC'
+  | 'end_ASC'
+  | 'end_DESC'
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'length_ASC'
+  | 'length_DESC'
+  | 'minPrice_ASC'
+  | 'minPrice_DESC'
+  | 'randomNumberGenerated_blockHash_ASC'
+  | 'randomNumberGenerated_blockHash_DESC'
+  | 'randomNumberGenerated_id_ASC'
+  | 'randomNumberGenerated_id_DESC'
+  | 'randomNumberGenerated_number_ASC'
+  | 'randomNumberGenerated_number_DESC'
+  | 'randomNumberGenerated_timestamp_ASC'
+  | 'randomNumberGenerated_timestamp_DESC'
+  | 'rate_ASC'
+  | 'rate_DESC'
+  | 'repeat_ASC'
+  | 'repeat_DESC'
+  | 'round_ASC'
+  | 'round_DESC'
+  | 'start_ASC'
+  | 'start_DESC'
+  | '%future added value';
 
 export type LotteryRoundWhereInput = {
   AND?: InputMaybe<Array<LotteryRoundWhereInput>>;
@@ -444,36 +442,36 @@ export type RandomNumberGeneratedEdge = {
   node: RandomNumberGenerated;
 };
 
-export enum RandomNumberGeneratedOrderByInput {
-  BlockHashAsc = 'blockHash_ASC',
-  BlockHashDesc = 'blockHash_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  NumberAsc = 'number_ASC',
-  NumberDesc = 'number_DESC',
-  RoundBlockHashAsc = 'round_blockHash_ASC',
-  RoundBlockHashDesc = 'round_blockHash_DESC',
-  RoundDelayAsc = 'round_delay_ASC',
-  RoundDelayDesc = 'round_delay_DESC',
-  RoundEndAsc = 'round_end_ASC',
-  RoundEndDesc = 'round_end_DESC',
-  RoundIdAsc = 'round_id_ASC',
-  RoundIdDesc = 'round_id_DESC',
-  RoundLengthAsc = 'round_length_ASC',
-  RoundLengthDesc = 'round_length_DESC',
-  RoundMinPriceAsc = 'round_minPrice_ASC',
-  RoundMinPriceDesc = 'round_minPrice_DESC',
-  RoundRateAsc = 'round_rate_ASC',
-  RoundRateDesc = 'round_rate_DESC',
-  RoundRepeatAsc = 'round_repeat_ASC',
-  RoundRepeatDesc = 'round_repeat_DESC',
-  RoundRoundAsc = 'round_round_ASC',
-  RoundRoundDesc = 'round_round_DESC',
-  RoundStartAsc = 'round_start_ASC',
-  RoundStartDesc = 'round_start_DESC',
-  TimestampAsc = 'timestamp_ASC',
-  TimestampDesc = 'timestamp_DESC'
-}
+export type RandomNumberGeneratedOrderByInput =
+  | 'blockHash_ASC'
+  | 'blockHash_DESC'
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'number_ASC'
+  | 'number_DESC'
+  | 'round_blockHash_ASC'
+  | 'round_blockHash_DESC'
+  | 'round_delay_ASC'
+  | 'round_delay_DESC'
+  | 'round_end_ASC'
+  | 'round_end_DESC'
+  | 'round_id_ASC'
+  | 'round_id_DESC'
+  | 'round_length_ASC'
+  | 'round_length_DESC'
+  | 'round_minPrice_ASC'
+  | 'round_minPrice_DESC'
+  | 'round_rate_ASC'
+  | 'round_rate_DESC'
+  | 'round_repeat_ASC'
+  | 'round_repeat_DESC'
+  | 'round_round_ASC'
+  | 'round_round_DESC'
+  | 'round_start_ASC'
+  | 'round_start_DESC'
+  | 'timestamp_ASC'
+  | 'timestamp_DESC'
+  | '%future added value';
 
 export type RandomNumberGeneratedWhereInput = {
   AND?: InputMaybe<Array<RandomNumberGeneratedWhereInput>>;
@@ -554,44 +552,44 @@ export type RoundWinnerEdge = {
   node: RoundWinner;
 };
 
-export enum RoundWinnerOrderByInput {
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  RoundBlockHashAsc = 'round_blockHash_ASC',
-  RoundBlockHashDesc = 'round_blockHash_DESC',
-  RoundDelayAsc = 'round_delay_ASC',
-  RoundDelayDesc = 'round_delay_DESC',
-  RoundEndAsc = 'round_end_ASC',
-  RoundEndDesc = 'round_end_DESC',
-  RoundIdAsc = 'round_id_ASC',
-  RoundIdDesc = 'round_id_DESC',
-  RoundLengthAsc = 'round_length_ASC',
-  RoundLengthDesc = 'round_length_DESC',
-  RoundMinPriceAsc = 'round_minPrice_ASC',
-  RoundMinPriceDesc = 'round_minPrice_DESC',
-  RoundRateAsc = 'round_rate_ASC',
-  RoundRateDesc = 'round_rate_DESC',
-  RoundRepeatAsc = 'round_repeat_ASC',
-  RoundRepeatDesc = 'round_repeat_DESC',
-  RoundRoundAsc = 'round_round_ASC',
-  RoundRoundDesc = 'round_round_DESC',
-  RoundStartAsc = 'round_start_ASC',
-  RoundStartDesc = 'round_start_DESC',
-  TicketBoughtAmountAsc = 'ticketBought_amount_ASC',
-  TicketBoughtAmountDesc = 'ticketBought_amount_DESC',
-  TicketBoughtBlockNumberAsc = 'ticketBought_blockNumber_ASC',
-  TicketBoughtBlockNumberDesc = 'ticketBought_blockNumber_DESC',
-  TicketBoughtIdAsc = 'ticketBought_id_ASC',
-  TicketBoughtIdDesc = 'ticketBought_id_DESC',
-  TicketBoughtNumberAsc = 'ticketBought_number_ASC',
-  TicketBoughtNumberDesc = 'ticketBought_number_DESC',
-  TicketBoughtTimestampAsc = 'ticketBought_timestamp_ASC',
-  TicketBoughtTimestampDesc = 'ticketBought_timestamp_DESC',
-  TicketBoughtTransactionHashAsc = 'ticketBought_transactionHash_ASC',
-  TicketBoughtTransactionHashDesc = 'ticketBought_transactionHash_DESC',
-  TicketBoughtWhoAsc = 'ticketBought_who_ASC',
-  TicketBoughtWhoDesc = 'ticketBought_who_DESC'
-}
+export type RoundWinnerOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'round_blockHash_ASC'
+  | 'round_blockHash_DESC'
+  | 'round_delay_ASC'
+  | 'round_delay_DESC'
+  | 'round_end_ASC'
+  | 'round_end_DESC'
+  | 'round_id_ASC'
+  | 'round_id_DESC'
+  | 'round_length_ASC'
+  | 'round_length_DESC'
+  | 'round_minPrice_ASC'
+  | 'round_minPrice_DESC'
+  | 'round_rate_ASC'
+  | 'round_rate_DESC'
+  | 'round_repeat_ASC'
+  | 'round_repeat_DESC'
+  | 'round_round_ASC'
+  | 'round_round_DESC'
+  | 'round_start_ASC'
+  | 'round_start_DESC'
+  | 'ticketBought_amount_ASC'
+  | 'ticketBought_amount_DESC'
+  | 'ticketBought_blockNumber_ASC'
+  | 'ticketBought_blockNumber_DESC'
+  | 'ticketBought_id_ASC'
+  | 'ticketBought_id_DESC'
+  | 'ticketBought_number_ASC'
+  | 'ticketBought_number_DESC'
+  | 'ticketBought_timestamp_ASC'
+  | 'ticketBought_timestamp_DESC'
+  | 'ticketBought_transactionHash_ASC'
+  | 'ticketBought_transactionHash_DESC'
+  | 'ticketBought_who_ASC'
+  | 'ticketBought_who_DESC'
+  | '%future added value';
 
 export type RoundWinnerWhereInput = {
   AND?: InputMaybe<Array<RoundWinnerWhereInput>>;
@@ -745,44 +743,44 @@ export type TicketBoughtEdge = {
   node: TicketBought;
 };
 
-export enum TicketBoughtOrderByInput {
-  AmountAsc = 'amount_ASC',
-  AmountDesc = 'amount_DESC',
-  BlockNumberAsc = 'blockNumber_ASC',
-  BlockNumberDesc = 'blockNumber_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  NumberAsc = 'number_ASC',
-  NumberDesc = 'number_DESC',
-  RoundWinnerIdAsc = 'roundWinner_id_ASC',
-  RoundWinnerIdDesc = 'roundWinner_id_DESC',
-  RoundBlockHashAsc = 'round_blockHash_ASC',
-  RoundBlockHashDesc = 'round_blockHash_DESC',
-  RoundDelayAsc = 'round_delay_ASC',
-  RoundDelayDesc = 'round_delay_DESC',
-  RoundEndAsc = 'round_end_ASC',
-  RoundEndDesc = 'round_end_DESC',
-  RoundIdAsc = 'round_id_ASC',
-  RoundIdDesc = 'round_id_DESC',
-  RoundLengthAsc = 'round_length_ASC',
-  RoundLengthDesc = 'round_length_DESC',
-  RoundMinPriceAsc = 'round_minPrice_ASC',
-  RoundMinPriceDesc = 'round_minPrice_DESC',
-  RoundRateAsc = 'round_rate_ASC',
-  RoundRateDesc = 'round_rate_DESC',
-  RoundRepeatAsc = 'round_repeat_ASC',
-  RoundRepeatDesc = 'round_repeat_DESC',
-  RoundRoundAsc = 'round_round_ASC',
-  RoundRoundDesc = 'round_round_DESC',
-  RoundStartAsc = 'round_start_ASC',
-  RoundStartDesc = 'round_start_DESC',
-  TimestampAsc = 'timestamp_ASC',
-  TimestampDesc = 'timestamp_DESC',
-  TransactionHashAsc = 'transactionHash_ASC',
-  TransactionHashDesc = 'transactionHash_DESC',
-  WhoAsc = 'who_ASC',
-  WhoDesc = 'who_DESC'
-}
+export type TicketBoughtOrderByInput =
+  | 'amount_ASC'
+  | 'amount_DESC'
+  | 'blockNumber_ASC'
+  | 'blockNumber_DESC'
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'number_ASC'
+  | 'number_DESC'
+  | 'roundWinner_id_ASC'
+  | 'roundWinner_id_DESC'
+  | 'round_blockHash_ASC'
+  | 'round_blockHash_DESC'
+  | 'round_delay_ASC'
+  | 'round_delay_DESC'
+  | 'round_end_ASC'
+  | 'round_end_DESC'
+  | 'round_id_ASC'
+  | 'round_id_DESC'
+  | 'round_length_ASC'
+  | 'round_length_DESC'
+  | 'round_minPrice_ASC'
+  | 'round_minPrice_DESC'
+  | 'round_rate_ASC'
+  | 'round_rate_DESC'
+  | 'round_repeat_ASC'
+  | 'round_repeat_DESC'
+  | 'round_round_ASC'
+  | 'round_round_DESC'
+  | 'round_start_ASC'
+  | 'round_start_DESC'
+  | 'timestamp_ASC'
+  | 'timestamp_DESC'
+  | 'transactionHash_ASC'
+  | 'transactionHash_DESC'
+  | 'who_ASC'
+  | 'who_DESC'
+  | '%future added value';
 
 export type TicketBoughtWhereInput = {
   AND?: InputMaybe<Array<TicketBoughtWhereInput>>;
@@ -908,34 +906,34 @@ export type TotalSettleAmountByNumberEdge = {
   node: TotalSettleAmountByNumber;
 };
 
-export enum TotalSettleAmountByNumberOrderByInput {
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  NumberAsc = 'number_ASC',
-  NumberDesc = 'number_DESC',
-  RoundBlockHashAsc = 'round_blockHash_ASC',
-  RoundBlockHashDesc = 'round_blockHash_DESC',
-  RoundDelayAsc = 'round_delay_ASC',
-  RoundDelayDesc = 'round_delay_DESC',
-  RoundEndAsc = 'round_end_ASC',
-  RoundEndDesc = 'round_end_DESC',
-  RoundIdAsc = 'round_id_ASC',
-  RoundIdDesc = 'round_id_DESC',
-  RoundLengthAsc = 'round_length_ASC',
-  RoundLengthDesc = 'round_length_DESC',
-  RoundMinPriceAsc = 'round_minPrice_ASC',
-  RoundMinPriceDesc = 'round_minPrice_DESC',
-  RoundRateAsc = 'round_rate_ASC',
-  RoundRateDesc = 'round_rate_DESC',
-  RoundRepeatAsc = 'round_repeat_ASC',
-  RoundRepeatDesc = 'round_repeat_DESC',
-  RoundRoundAsc = 'round_round_ASC',
-  RoundRoundDesc = 'round_round_DESC',
-  RoundStartAsc = 'round_start_ASC',
-  RoundStartDesc = 'round_start_DESC',
-  TotalAmountAsc = 'totalAmount_ASC',
-  TotalAmountDesc = 'totalAmount_DESC'
-}
+export type TotalSettleAmountByNumberOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'number_ASC'
+  | 'number_DESC'
+  | 'round_blockHash_ASC'
+  | 'round_blockHash_DESC'
+  | 'round_delay_ASC'
+  | 'round_delay_DESC'
+  | 'round_end_ASC'
+  | 'round_end_DESC'
+  | 'round_id_ASC'
+  | 'round_id_DESC'
+  | 'round_length_ASC'
+  | 'round_length_DESC'
+  | 'round_minPrice_ASC'
+  | 'round_minPrice_DESC'
+  | 'round_rate_ASC'
+  | 'round_rate_DESC'
+  | 'round_repeat_ASC'
+  | 'round_repeat_DESC'
+  | 'round_round_ASC'
+  | 'round_round_DESC'
+  | 'round_start_ASC'
+  | 'round_start_DESC'
+  | 'totalAmount_ASC'
+  | 'totalAmount_DESC'
+  | '%future added value';
 
 export type TotalSettleAmountByNumberWhereInput = {
   AND?: InputMaybe<Array<TotalSettleAmountByNumberWhereInput>>;
@@ -992,32 +990,32 @@ export type TotalSettleAmountEdge = {
   node: TotalSettleAmount;
 };
 
-export enum TotalSettleAmountOrderByInput {
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  RoundBlockHashAsc = 'round_blockHash_ASC',
-  RoundBlockHashDesc = 'round_blockHash_DESC',
-  RoundDelayAsc = 'round_delay_ASC',
-  RoundDelayDesc = 'round_delay_DESC',
-  RoundEndAsc = 'round_end_ASC',
-  RoundEndDesc = 'round_end_DESC',
-  RoundIdAsc = 'round_id_ASC',
-  RoundIdDesc = 'round_id_DESC',
-  RoundLengthAsc = 'round_length_ASC',
-  RoundLengthDesc = 'round_length_DESC',
-  RoundMinPriceAsc = 'round_minPrice_ASC',
-  RoundMinPriceDesc = 'round_minPrice_DESC',
-  RoundRateAsc = 'round_rate_ASC',
-  RoundRateDesc = 'round_rate_DESC',
-  RoundRepeatAsc = 'round_repeat_ASC',
-  RoundRepeatDesc = 'round_repeat_DESC',
-  RoundRoundAsc = 'round_round_ASC',
-  RoundRoundDesc = 'round_round_DESC',
-  RoundStartAsc = 'round_start_ASC',
-  RoundStartDesc = 'round_start_DESC',
-  TotalAmountAsc = 'totalAmount_ASC',
-  TotalAmountDesc = 'totalAmount_DESC'
-}
+export type TotalSettleAmountOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'round_blockHash_ASC'
+  | 'round_blockHash_DESC'
+  | 'round_delay_ASC'
+  | 'round_delay_DESC'
+  | 'round_end_ASC'
+  | 'round_end_DESC'
+  | 'round_id_ASC'
+  | 'round_id_DESC'
+  | 'round_length_ASC'
+  | 'round_length_DESC'
+  | 'round_minPrice_ASC'
+  | 'round_minPrice_DESC'
+  | 'round_rate_ASC'
+  | 'round_rate_DESC'
+  | 'round_repeat_ASC'
+  | 'round_repeat_DESC'
+  | 'round_round_ASC'
+  | 'round_round_DESC'
+  | 'round_start_ASC'
+  | 'round_start_DESC'
+  | 'totalAmount_ASC'
+  | 'totalAmount_DESC'
+  | '%future added value';
 
 export type TotalSettleAmountWhereInput = {
   AND?: InputMaybe<Array<TotalSettleAmountWhereInput>>;
@@ -1062,387 +1060,3 @@ export type TotalSettleAmountsConnection = {
 export type WhereIdInput = {
   id: Scalars['String'];
 };
-
-
-
-export type ResolverTypeWrapper<T> = Promise<T> | T;
-
-
-export type ResolverWithResolve<TResult, TParent, TContext, TArgs> = {
-  resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
-};
-export type Resolver<TResult, TParent = {}, TContext = {}, TArgs = {}> = ResolverFn<TResult, TParent, TContext, TArgs> | ResolverWithResolve<TResult, TParent, TContext, TArgs>;
-
-export type ResolverFn<TResult, TParent, TContext, TArgs> = (
-  parent: TParent,
-  args: TArgs,
-  context: TContext,
-  info: GraphQLResolveInfo
-) => Promise<TResult> | TResult;
-
-export type SubscriptionSubscribeFn<TResult, TParent, TContext, TArgs> = (
-  parent: TParent,
-  args: TArgs,
-  context: TContext,
-  info: GraphQLResolveInfo
-) => AsyncIterable<TResult> | Promise<AsyncIterable<TResult>>;
-
-export type SubscriptionResolveFn<TResult, TParent, TContext, TArgs> = (
-  parent: TParent,
-  args: TArgs,
-  context: TContext,
-  info: GraphQLResolveInfo
-) => TResult | Promise<TResult>;
-
-export interface SubscriptionSubscriberObject<TResult, TKey extends string, TParent, TContext, TArgs> {
-  subscribe: SubscriptionSubscribeFn<{ [key in TKey]: TResult }, TParent, TContext, TArgs>;
-  resolve?: SubscriptionResolveFn<TResult, { [key in TKey]: TResult }, TContext, TArgs>;
-}
-
-export interface SubscriptionResolverObject<TResult, TParent, TContext, TArgs> {
-  subscribe: SubscriptionSubscribeFn<any, TParent, TContext, TArgs>;
-  resolve: SubscriptionResolveFn<TResult, any, TContext, TArgs>;
-}
-
-export type SubscriptionObject<TResult, TKey extends string, TParent, TContext, TArgs> =
-  | SubscriptionSubscriberObject<TResult, TKey, TParent, TContext, TArgs>
-  | SubscriptionResolverObject<TResult, TParent, TContext, TArgs>;
-
-export type SubscriptionResolver<TResult, TKey extends string, TParent = {}, TContext = {}, TArgs = {}> =
-  | ((...args: any[]) => SubscriptionObject<TResult, TKey, TParent, TContext, TArgs>)
-  | SubscriptionObject<TResult, TKey, TParent, TContext, TArgs>;
-
-export type TypeResolveFn<TTypes, TParent = {}, TContext = {}> = (
-  parent: TParent,
-  context: TContext,
-  info: GraphQLResolveInfo
-) => Maybe<TTypes> | Promise<Maybe<TTypes>>;
-
-export type IsTypeOfResolverFn<T = {}, TContext = {}> = (obj: T, context: TContext, info: GraphQLResolveInfo) => boolean | Promise<boolean>;
-
-export type NextResolverFn<T> = () => Promise<T>;
-
-export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs = {}> = (
-  next: NextResolverFn<TResult>,
-  parent: TParent,
-  args: TArgs,
-  context: TContext,
-  info: GraphQLResolveInfo
-) => TResult | Promise<TResult>;
-
-
-
-/** Mapping between all available schema types and the resolvers types */
-export type ResolversTypes = {
-  BigInt: ResolverTypeWrapper<Scalars['BigInt']>;
-  Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
-  DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
-  Int: ResolverTypeWrapper<Scalars['Int']>;
-  LotteryRound: ResolverTypeWrapper<LotteryRound>;
-  LotteryRoundEdge: ResolverTypeWrapper<LotteryRoundEdge>;
-  LotteryRoundOrderByInput: LotteryRoundOrderByInput;
-  LotteryRoundWhereInput: LotteryRoundWhereInput;
-  LotteryRoundsConnection: ResolverTypeWrapper<LotteryRoundsConnection>;
-  PageInfo: ResolverTypeWrapper<PageInfo>;
-  Query: ResolverTypeWrapper<{}>;
-  RandomNumberGenerated: ResolverTypeWrapper<RandomNumberGenerated>;
-  RandomNumberGeneratedEdge: ResolverTypeWrapper<RandomNumberGeneratedEdge>;
-  RandomNumberGeneratedOrderByInput: RandomNumberGeneratedOrderByInput;
-  RandomNumberGeneratedWhereInput: RandomNumberGeneratedWhereInput;
-  RandomNumberGeneratedsConnection: ResolverTypeWrapper<RandomNumberGeneratedsConnection>;
-  RoundWinner: ResolverTypeWrapper<RoundWinner>;
-  RoundWinnerEdge: ResolverTypeWrapper<RoundWinnerEdge>;
-  RoundWinnerOrderByInput: RoundWinnerOrderByInput;
-  RoundWinnerWhereInput: RoundWinnerWhereInput;
-  RoundWinnersConnection: ResolverTypeWrapper<RoundWinnersConnection>;
-  SquidStatus: ResolverTypeWrapper<SquidStatus>;
-  String: ResolverTypeWrapper<Scalars['String']>;
-  Subscription: ResolverTypeWrapper<{}>;
-  TicketBought: ResolverTypeWrapper<TicketBought>;
-  TicketBoughtEdge: ResolverTypeWrapper<TicketBoughtEdge>;
-  TicketBoughtOrderByInput: TicketBoughtOrderByInput;
-  TicketBoughtWhereInput: TicketBoughtWhereInput;
-  TicketBoughtsConnection: ResolverTypeWrapper<TicketBoughtsConnection>;
-  TotalSettleAmount: ResolverTypeWrapper<TotalSettleAmount>;
-  TotalSettleAmountByNumber: ResolverTypeWrapper<TotalSettleAmountByNumber>;
-  TotalSettleAmountByNumberEdge: ResolverTypeWrapper<TotalSettleAmountByNumberEdge>;
-  TotalSettleAmountByNumberOrderByInput: TotalSettleAmountByNumberOrderByInput;
-  TotalSettleAmountByNumberWhereInput: TotalSettleAmountByNumberWhereInput;
-  TotalSettleAmountByNumbersConnection: ResolverTypeWrapper<TotalSettleAmountByNumbersConnection>;
-  TotalSettleAmountEdge: ResolverTypeWrapper<TotalSettleAmountEdge>;
-  TotalSettleAmountOrderByInput: TotalSettleAmountOrderByInput;
-  TotalSettleAmountWhereInput: TotalSettleAmountWhereInput;
-  TotalSettleAmountsConnection: ResolverTypeWrapper<TotalSettleAmountsConnection>;
-  WhereIdInput: WhereIdInput;
-};
-
-/** Mapping between all available schema types and the resolvers parents */
-export type ResolversParentTypes = {
-  BigInt: Scalars['BigInt'];
-  Boolean: Scalars['Boolean'];
-  DateTime: Scalars['DateTime'];
-  Int: Scalars['Int'];
-  LotteryRound: LotteryRound;
-  LotteryRoundEdge: LotteryRoundEdge;
-  LotteryRoundWhereInput: LotteryRoundWhereInput;
-  LotteryRoundsConnection: LotteryRoundsConnection;
-  PageInfo: PageInfo;
-  Query: {};
-  RandomNumberGenerated: RandomNumberGenerated;
-  RandomNumberGeneratedEdge: RandomNumberGeneratedEdge;
-  RandomNumberGeneratedWhereInput: RandomNumberGeneratedWhereInput;
-  RandomNumberGeneratedsConnection: RandomNumberGeneratedsConnection;
-  RoundWinner: RoundWinner;
-  RoundWinnerEdge: RoundWinnerEdge;
-  RoundWinnerWhereInput: RoundWinnerWhereInput;
-  RoundWinnersConnection: RoundWinnersConnection;
-  SquidStatus: SquidStatus;
-  String: Scalars['String'];
-  Subscription: {};
-  TicketBought: TicketBought;
-  TicketBoughtEdge: TicketBoughtEdge;
-  TicketBoughtWhereInput: TicketBoughtWhereInput;
-  TicketBoughtsConnection: TicketBoughtsConnection;
-  TotalSettleAmount: TotalSettleAmount;
-  TotalSettleAmountByNumber: TotalSettleAmountByNumber;
-  TotalSettleAmountByNumberEdge: TotalSettleAmountByNumberEdge;
-  TotalSettleAmountByNumberWhereInput: TotalSettleAmountByNumberWhereInput;
-  TotalSettleAmountByNumbersConnection: TotalSettleAmountByNumbersConnection;
-  TotalSettleAmountEdge: TotalSettleAmountEdge;
-  TotalSettleAmountWhereInput: TotalSettleAmountWhereInput;
-  TotalSettleAmountsConnection: TotalSettleAmountsConnection;
-  WhereIdInput: WhereIdInput;
-};
-
-export interface BigIntScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['BigInt'], any> {
-  name: 'BigInt';
-}
-
-export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
-  name: 'DateTime';
-}
-
-export type LotteryRoundResolvers<ContextType = any, ParentType extends ResolversParentTypes['LotteryRound'] = ResolversParentTypes['LotteryRound']> = {
-  blockHash?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  delay?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  end?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  length?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  minPrice?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
-  randomNumberGenerated?: Resolver<Maybe<ResolversTypes['RandomNumberGenerated']>, ParentType, ContextType>;
-  rate?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  repeat?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  round?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  roundWinners?: Resolver<Array<ResolversTypes['RoundWinner']>, ParentType, ContextType, Partial<LotteryRoundRoundWinnersArgs>>;
-  start?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  ticketBoughts?: Resolver<Array<ResolversTypes['TicketBought']>, ParentType, ContextType, Partial<LotteryRoundTicketBoughtsArgs>>;
-  totalSettleAmountByNumbers?: Resolver<Array<ResolversTypes['TotalSettleAmountByNumber']>, ParentType, ContextType, Partial<LotteryRoundTotalSettleAmountByNumbersArgs>>;
-  totalSettleAmounts?: Resolver<Array<ResolversTypes['TotalSettleAmount']>, ParentType, ContextType, Partial<LotteryRoundTotalSettleAmountsArgs>>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type LotteryRoundEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['LotteryRoundEdge'] = ResolversParentTypes['LotteryRoundEdge']> = {
-  cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  node?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type LotteryRoundsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['LotteryRoundsConnection'] = ResolversParentTypes['LotteryRoundsConnection']> = {
-  edges?: Resolver<Array<ResolversTypes['LotteryRoundEdge']>, ParentType, ContextType>;
-  pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
-  totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type PageInfoResolvers<ContextType = any, ParentType extends ResolversParentTypes['PageInfo'] = ResolversParentTypes['PageInfo']> = {
-  endCursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  hasNextPage?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  hasPreviousPage?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  startCursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  lotteryRoundById?: Resolver<Maybe<ResolversTypes['LotteryRound']>, ParentType, ContextType, RequireFields<QueryLotteryRoundByIdArgs, 'id'>>;
-  lotteryRoundByUniqueInput?: Resolver<Maybe<ResolversTypes['LotteryRound']>, ParentType, ContextType, RequireFields<QueryLotteryRoundByUniqueInputArgs, 'where'>>;
-  lotteryRounds?: Resolver<Array<ResolversTypes['LotteryRound']>, ParentType, ContextType, Partial<QueryLotteryRoundsArgs>>;
-  lotteryRoundsConnection?: Resolver<ResolversTypes['LotteryRoundsConnection'], ParentType, ContextType, RequireFields<QueryLotteryRoundsConnectionArgs, 'orderBy'>>;
-  randomNumberGeneratedById?: Resolver<Maybe<ResolversTypes['RandomNumberGenerated']>, ParentType, ContextType, RequireFields<QueryRandomNumberGeneratedByIdArgs, 'id'>>;
-  randomNumberGeneratedByUniqueInput?: Resolver<Maybe<ResolversTypes['RandomNumberGenerated']>, ParentType, ContextType, RequireFields<QueryRandomNumberGeneratedByUniqueInputArgs, 'where'>>;
-  randomNumberGenerateds?: Resolver<Array<ResolversTypes['RandomNumberGenerated']>, ParentType, ContextType, Partial<QueryRandomNumberGeneratedsArgs>>;
-  randomNumberGeneratedsConnection?: Resolver<ResolversTypes['RandomNumberGeneratedsConnection'], ParentType, ContextType, RequireFields<QueryRandomNumberGeneratedsConnectionArgs, 'orderBy'>>;
-  roundWinnerById?: Resolver<Maybe<ResolversTypes['RoundWinner']>, ParentType, ContextType, RequireFields<QueryRoundWinnerByIdArgs, 'id'>>;
-  roundWinnerByUniqueInput?: Resolver<Maybe<ResolversTypes['RoundWinner']>, ParentType, ContextType, RequireFields<QueryRoundWinnerByUniqueInputArgs, 'where'>>;
-  roundWinners?: Resolver<Array<ResolversTypes['RoundWinner']>, ParentType, ContextType, Partial<QueryRoundWinnersArgs>>;
-  roundWinnersConnection?: Resolver<ResolversTypes['RoundWinnersConnection'], ParentType, ContextType, RequireFields<QueryRoundWinnersConnectionArgs, 'orderBy'>>;
-  squidStatus?: Resolver<Maybe<ResolversTypes['SquidStatus']>, ParentType, ContextType>;
-  ticketBoughtById?: Resolver<Maybe<ResolversTypes['TicketBought']>, ParentType, ContextType, RequireFields<QueryTicketBoughtByIdArgs, 'id'>>;
-  ticketBoughtByUniqueInput?: Resolver<Maybe<ResolversTypes['TicketBought']>, ParentType, ContextType, RequireFields<QueryTicketBoughtByUniqueInputArgs, 'where'>>;
-  ticketBoughts?: Resolver<Array<ResolversTypes['TicketBought']>, ParentType, ContextType, Partial<QueryTicketBoughtsArgs>>;
-  ticketBoughtsConnection?: Resolver<ResolversTypes['TicketBoughtsConnection'], ParentType, ContextType, RequireFields<QueryTicketBoughtsConnectionArgs, 'orderBy'>>;
-  totalSettleAmountById?: Resolver<Maybe<ResolversTypes['TotalSettleAmount']>, ParentType, ContextType, RequireFields<QueryTotalSettleAmountByIdArgs, 'id'>>;
-  totalSettleAmountByNumberById?: Resolver<Maybe<ResolversTypes['TotalSettleAmountByNumber']>, ParentType, ContextType, RequireFields<QueryTotalSettleAmountByNumberByIdArgs, 'id'>>;
-  totalSettleAmountByNumberByUniqueInput?: Resolver<Maybe<ResolversTypes['TotalSettleAmountByNumber']>, ParentType, ContextType, RequireFields<QueryTotalSettleAmountByNumberByUniqueInputArgs, 'where'>>;
-  totalSettleAmountByNumbers?: Resolver<Array<ResolversTypes['TotalSettleAmountByNumber']>, ParentType, ContextType, Partial<QueryTotalSettleAmountByNumbersArgs>>;
-  totalSettleAmountByNumbersConnection?: Resolver<ResolversTypes['TotalSettleAmountByNumbersConnection'], ParentType, ContextType, RequireFields<QueryTotalSettleAmountByNumbersConnectionArgs, 'orderBy'>>;
-  totalSettleAmountByUniqueInput?: Resolver<Maybe<ResolversTypes['TotalSettleAmount']>, ParentType, ContextType, RequireFields<QueryTotalSettleAmountByUniqueInputArgs, 'where'>>;
-  totalSettleAmounts?: Resolver<Array<ResolversTypes['TotalSettleAmount']>, ParentType, ContextType, Partial<QueryTotalSettleAmountsArgs>>;
-  totalSettleAmountsConnection?: Resolver<ResolversTypes['TotalSettleAmountsConnection'], ParentType, ContextType, RequireFields<QueryTotalSettleAmountsConnectionArgs, 'orderBy'>>;
-};
-
-export type RandomNumberGeneratedResolvers<ContextType = any, ParentType extends ResolversParentTypes['RandomNumberGenerated'] = ResolversParentTypes['RandomNumberGenerated']> = {
-  blockHash?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  number?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  round?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
-  timestamp?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type RandomNumberGeneratedEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['RandomNumberGeneratedEdge'] = ResolversParentTypes['RandomNumberGeneratedEdge']> = {
-  cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  node?: Resolver<ResolversTypes['RandomNumberGenerated'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type RandomNumberGeneratedsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['RandomNumberGeneratedsConnection'] = ResolversParentTypes['RandomNumberGeneratedsConnection']> = {
-  edges?: Resolver<Array<ResolversTypes['RandomNumberGeneratedEdge']>, ParentType, ContextType>;
-  pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
-  totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type RoundWinnerResolvers<ContextType = any, ParentType extends ResolversParentTypes['RoundWinner'] = ResolversParentTypes['RoundWinner']> = {
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  round?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
-  ticketBought?: Resolver<ResolversTypes['TicketBought'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type RoundWinnerEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['RoundWinnerEdge'] = ResolversParentTypes['RoundWinnerEdge']> = {
-  cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  node?: Resolver<ResolversTypes['RoundWinner'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type RoundWinnersConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['RoundWinnersConnection'] = ResolversParentTypes['RoundWinnersConnection']> = {
-  edges?: Resolver<Array<ResolversTypes['RoundWinnerEdge']>, ParentType, ContextType>;
-  pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
-  totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type SquidStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['SquidStatus'] = ResolversParentTypes['SquidStatus']> = {
-  height?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type SubscriptionResolvers<ContextType = any, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = {
-  lotteryRoundById?: SubscriptionResolver<Maybe<ResolversTypes['LotteryRound']>, "lotteryRoundById", ParentType, ContextType, RequireFields<SubscriptionLotteryRoundByIdArgs, 'id'>>;
-  lotteryRounds?: SubscriptionResolver<Array<ResolversTypes['LotteryRound']>, "lotteryRounds", ParentType, ContextType, Partial<SubscriptionLotteryRoundsArgs>>;
-  randomNumberGeneratedById?: SubscriptionResolver<Maybe<ResolversTypes['RandomNumberGenerated']>, "randomNumberGeneratedById", ParentType, ContextType, RequireFields<SubscriptionRandomNumberGeneratedByIdArgs, 'id'>>;
-  randomNumberGenerateds?: SubscriptionResolver<Array<ResolversTypes['RandomNumberGenerated']>, "randomNumberGenerateds", ParentType, ContextType, Partial<SubscriptionRandomNumberGeneratedsArgs>>;
-  roundWinnerById?: SubscriptionResolver<Maybe<ResolversTypes['RoundWinner']>, "roundWinnerById", ParentType, ContextType, RequireFields<SubscriptionRoundWinnerByIdArgs, 'id'>>;
-  roundWinners?: SubscriptionResolver<Array<ResolversTypes['RoundWinner']>, "roundWinners", ParentType, ContextType, Partial<SubscriptionRoundWinnersArgs>>;
-  ticketBoughtById?: SubscriptionResolver<Maybe<ResolversTypes['TicketBought']>, "ticketBoughtById", ParentType, ContextType, RequireFields<SubscriptionTicketBoughtByIdArgs, 'id'>>;
-  ticketBoughts?: SubscriptionResolver<Array<ResolversTypes['TicketBought']>, "ticketBoughts", ParentType, ContextType, Partial<SubscriptionTicketBoughtsArgs>>;
-  totalSettleAmountById?: SubscriptionResolver<Maybe<ResolversTypes['TotalSettleAmount']>, "totalSettleAmountById", ParentType, ContextType, RequireFields<SubscriptionTotalSettleAmountByIdArgs, 'id'>>;
-  totalSettleAmountByNumberById?: SubscriptionResolver<Maybe<ResolversTypes['TotalSettleAmountByNumber']>, "totalSettleAmountByNumberById", ParentType, ContextType, RequireFields<SubscriptionTotalSettleAmountByNumberByIdArgs, 'id'>>;
-  totalSettleAmountByNumbers?: SubscriptionResolver<Array<ResolversTypes['TotalSettleAmountByNumber']>, "totalSettleAmountByNumbers", ParentType, ContextType, Partial<SubscriptionTotalSettleAmountByNumbersArgs>>;
-  totalSettleAmounts?: SubscriptionResolver<Array<ResolversTypes['TotalSettleAmount']>, "totalSettleAmounts", ParentType, ContextType, Partial<SubscriptionTotalSettleAmountsArgs>>;
-};
-
-export type TicketBoughtResolvers<ContextType = any, ParentType extends ResolversParentTypes['TicketBought'] = ResolversParentTypes['TicketBought']> = {
-  amount?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
-  blockNumber?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  number?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  round?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
-  roundWinner?: Resolver<Maybe<ResolversTypes['RoundWinner']>, ParentType, ContextType>;
-  timestamp?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
-  transactionHash?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  who?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TicketBoughtEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['TicketBoughtEdge'] = ResolversParentTypes['TicketBoughtEdge']> = {
-  cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  node?: Resolver<ResolversTypes['TicketBought'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TicketBoughtsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['TicketBoughtsConnection'] = ResolversParentTypes['TicketBoughtsConnection']> = {
-  edges?: Resolver<Array<ResolversTypes['TicketBoughtEdge']>, ParentType, ContextType>;
-  pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
-  totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TotalSettleAmountResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmount'] = ResolversParentTypes['TotalSettleAmount']> = {
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  round?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
-  totalAmount?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TotalSettleAmountByNumberResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountByNumber'] = ResolversParentTypes['TotalSettleAmountByNumber']> = {
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  number?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  round?: Resolver<ResolversTypes['LotteryRound'], ParentType, ContextType>;
-  totalAmount?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TotalSettleAmountByNumberEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountByNumberEdge'] = ResolversParentTypes['TotalSettleAmountByNumberEdge']> = {
-  cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  node?: Resolver<ResolversTypes['TotalSettleAmountByNumber'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TotalSettleAmountByNumbersConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountByNumbersConnection'] = ResolversParentTypes['TotalSettleAmountByNumbersConnection']> = {
-  edges?: Resolver<Array<ResolversTypes['TotalSettleAmountByNumberEdge']>, ParentType, ContextType>;
-  pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
-  totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TotalSettleAmountEdgeResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountEdge'] = ResolversParentTypes['TotalSettleAmountEdge']> = {
-  cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  node?: Resolver<ResolversTypes['TotalSettleAmount'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TotalSettleAmountsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['TotalSettleAmountsConnection'] = ResolversParentTypes['TotalSettleAmountsConnection']> = {
-  edges?: Resolver<Array<ResolversTypes['TotalSettleAmountEdge']>, ParentType, ContextType>;
-  pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
-  totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type Resolvers<ContextType = any> = {
-  BigInt?: GraphQLScalarType;
-  DateTime?: GraphQLScalarType;
-  LotteryRound?: LotteryRoundResolvers<ContextType>;
-  LotteryRoundEdge?: LotteryRoundEdgeResolvers<ContextType>;
-  LotteryRoundsConnection?: LotteryRoundsConnectionResolvers<ContextType>;
-  PageInfo?: PageInfoResolvers<ContextType>;
-  Query?: QueryResolvers<ContextType>;
-  RandomNumberGenerated?: RandomNumberGeneratedResolvers<ContextType>;
-  RandomNumberGeneratedEdge?: RandomNumberGeneratedEdgeResolvers<ContextType>;
-  RandomNumberGeneratedsConnection?: RandomNumberGeneratedsConnectionResolvers<ContextType>;
-  RoundWinner?: RoundWinnerResolvers<ContextType>;
-  RoundWinnerEdge?: RoundWinnerEdgeResolvers<ContextType>;
-  RoundWinnersConnection?: RoundWinnersConnectionResolvers<ContextType>;
-  SquidStatus?: SquidStatusResolvers<ContextType>;
-  Subscription?: SubscriptionResolvers<ContextType>;
-  TicketBought?: TicketBoughtResolvers<ContextType>;
-  TicketBoughtEdge?: TicketBoughtEdgeResolvers<ContextType>;
-  TicketBoughtsConnection?: TicketBoughtsConnectionResolvers<ContextType>;
-  TotalSettleAmount?: TotalSettleAmountResolvers<ContextType>;
-  TotalSettleAmountByNumber?: TotalSettleAmountByNumberResolvers<ContextType>;
-  TotalSettleAmountByNumberEdge?: TotalSettleAmountByNumberEdgeResolvers<ContextType>;
-  TotalSettleAmountByNumbersConnection?: TotalSettleAmountByNumbersConnectionResolvers<ContextType>;
-  TotalSettleAmountEdge?: TotalSettleAmountEdgeResolvers<ContextType>;
-  TotalSettleAmountsConnection?: TotalSettleAmountsConnectionResolvers<ContextType>;
-};
-

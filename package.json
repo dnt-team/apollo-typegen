@@ -52,6 +52,7 @@
     "@apollo/client": "^3.7.12",
     "@graphql-codegen/cli": "^3.3.1",
     "@graphql-codegen/client-preset": "^3.0.1",
+    "@graphql-codegen/typescript-operations": "^3.0.4",
     "@graphql-codegen/typescript-resolvers": "^3.2.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^6.0.3",
@@ -67,6 +68,10 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@graphql-codegen/cli": "3.3.1",
+    "@graphql-codegen/near-operation-file-preset": "^2.5.0",
+    "@graphql-codegen/typescript": "3.0.4",
+    "@graphql-codegen/typescript-resolvers": "3.2.1",
     "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
@@ -80,9 +85,6 @@
     "ts-loader": "^9.2.5",
     "typescript": "^4.4.3",
     "webpack": "^5.52.1",
-    "webpack-cli": "^4.8.0",
-    "@graphql-codegen/typescript": "3.0.4",
-    "@graphql-codegen/typescript-resolvers": "3.2.1",
-    "@graphql-codegen/cli": "3.3.1"
+    "webpack-cli": "^4.8.0"
   }
 }
